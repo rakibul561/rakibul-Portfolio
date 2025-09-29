@@ -1,6 +1,7 @@
 import compression from "compression";
 import cors from "cors";
 import express from "express";
+import { AuthRouter } from "./app/modules/auth/auth.route";
 
 const app = express();
 
@@ -15,6 +16,9 @@ app.use(
     credentials: true,
   })
 );
+
+
+app.use("/api/auth", AuthRouter)
 
 // Default route for testing
 app.get("/", (_req, res) => {
