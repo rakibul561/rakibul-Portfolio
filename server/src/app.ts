@@ -2,13 +2,14 @@ import compression from "compression";
 import cors from "cors";
 import express from "express";
 import { AuthRouter } from "./app/modules/auth/auth.route";
+import { BlogRouter } from "./app/modules/blog/blog.route";
 
 const app = express();
 
 // Middleware
-app.use(cors()); // Enables Cross-Origin Resource Sharing
-app.use(compression()); // Compresses response bodies for faster delivery
-app.use(express.json()); // Parse incoming JSON requests
+app.use(cors()); 
+app.use(compression()); 
+app.use(express.json()); 
 
 app.use(
   cors({
@@ -19,6 +20,7 @@ app.use(
 
 
 app.use("/api/auth", AuthRouter)
+app.use("/api/blog", BlogRouter)
 
 // Default route for testing
 app.get("/", (_req, res) => {

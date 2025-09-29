@@ -6,7 +6,6 @@
 
 generator client {
   provider = "prisma-client-js"
- 
 }
 
 datasource db {
@@ -14,42 +13,38 @@ datasource db {
   url      = env("DATABASE_URL")
 }
 
-
 model User {
-  id        Int      @id @default(autoincrement())
-  name      String
-  email     String   @unique
-  password  String
-  
-  createdAt DateTime @default(now())
-   blogs     Blog[]
+  id       Int    @id @default(autoincrement())
+  name     String
+  email    String @unique
+  password String
+  createdAt DateTime  @default(now())
+  blogs     Blog[]
   projects  Project[]
-
 }
 
-
 model Blog {
-  id         Int      @id @default(autoincrement())
+  id        Int      @id @default(autoincrement())
   title     String
   content   String
   thumbnail String
   createdAt DateTime @default(now())
   updatedAt DateTime @updatedAt
   authorId  Int
-  author     User @relation(fields: [authorId], references: [id])
+  author    User     @relation(fields: [authorId], references: [id])
 }
 
 model Project {
-    id         Int      @id @default(autoincrement())
+  id          Int      @id @default(autoincrement())
   title       String
   description String
-  image       String?   
-  githubUrl   String?   
-  liveUrl     String?   
-  technology  String[]   
+  image       String?
+  githubUrl   String?
+  liveUrl     String?
+  technology  String[]
   createdAt   DateTime @default(now())
   updatedAt   DateTime @updatedAt
 
-  ownerId     Int
-  owner       User     @relation(fields: [ownerId], references: [id])
+  ownerId Int
+  owner   User @relation(fields: [ownerId], references: [id])
 }
