@@ -2,6 +2,8 @@ import http, { Server } from "http";
 import app from "./app";
 import dotenv from "dotenv";
 import { prisma } from "./config/db";
+import { seedAdmin } from "./app/utils/seedAdmin";
+
 
 dotenv.config();
 
@@ -24,6 +26,8 @@ async function startServer() {
     server.listen(process.env.PORT, () => {
       console.log(`🚀 Server is running on port ${process.env.PORT}`);
     });
+
+    await seedAdmin();
 
     handleProcessEvents();
   } catch (error) {
