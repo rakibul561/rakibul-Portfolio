@@ -28,6 +28,19 @@ import { prisma } from "../../../config/db"
  }
 
 
+ const getSingleBlog  = async (id: number)=> {
+     
+    const result = await prisma.blog.findUnique({
+        where: {
+            id
+        }
+    })
+
+    return result
+   
+     
+ } 
+
  const updateBlog  = async (id: number, payload:Prisma.BlogUpdateInput):Promise<Blog> => {
      
     const result = await prisma.blog.update( {
@@ -62,5 +75,6 @@ import { prisma } from "../../../config/db"
     createBlogDB,
     findAllBlogDB,
     updateBlog,
-    deleteBlog
+    deleteBlog,
+    getSingleBlog
  }

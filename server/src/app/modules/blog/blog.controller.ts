@@ -36,6 +36,26 @@ const findAllBlogs = async (req:Request, res:Response) =>{
 
 }
 
+const getSingleBlog = async (req:Request, res:Response) => {
+    try {
+        const id = Number(req.params.id)
+        const result = await BlogService.getSingleBlog(id)
+        res.status(201).json({
+            success:true,
+            message: "single blog recived successfull",
+            data:result
+        })
+        
+        
+    } catch (error) {
+        console.log(error)
+    }
+
+}
+
+
+
+
 const updateBlog = async (req:Request, res:Response) =>{
     try {
         const id = Number(req.params.id);
@@ -76,5 +96,6 @@ export const BlogController = {
     createBlog,
     findAllBlogs,
     updateBlog,
-    deleteBlog
+    deleteBlog,
+    getSingleBlog
 }

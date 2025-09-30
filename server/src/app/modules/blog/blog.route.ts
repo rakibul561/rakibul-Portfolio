@@ -6,6 +6,7 @@ import { BlogController } from './blog.controller';
 
 router.post("/", BlogController.createBlog)
 router.get("/", BlogController.findAllBlogs)
+router.get("/:id", BlogController.getSingleBlog)
 router.patch("/:id", BlogController.updateBlog)
 router.delete("/:id", BlogController.deleteBlog)
 
