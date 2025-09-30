@@ -39,8 +39,9 @@ model Project {
   title       String
   description String
   image       String?
-  githubUrl   String?
+  githubUrl   String[]
   liveUrl     String?
+  features    String[]
   technology  String[]
   createdAt   DateTime @default(now())
   updatedAt   DateTime @updatedAt
