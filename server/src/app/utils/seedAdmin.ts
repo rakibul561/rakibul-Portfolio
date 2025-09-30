@@ -16,7 +16,7 @@ import bcrypt from "bcrypt";
   if (!admin) {
     const admin = await prisma.user.create({
       data: {
-        name: "Portfolio Owner",
+        name: "Rakibul Hasan",
         email:  process.env.ADMIN_EMAIL as string,
         password: hashedPassword,
       },

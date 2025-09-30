@@ -3,6 +3,7 @@ import cors from "cors";
 import express from "express";
 import { AuthRouter } from "./app/modules/auth/auth.route";
 import { BlogRouter } from "./app/modules/blog/blog.route";
+import { ProjectRouter } from "./app/modules/project/project.route";
 
 const app = express();
 
@@ -21,6 +22,7 @@ app.use(
 
 app.use("/api/auth", AuthRouter)
 app.use("/api/blog", BlogRouter)
+app.use("/api/project", ProjectRouter)
 
 // Default route for testing
 app.get("/", (_req, res) => {
