@@ -9,7 +9,7 @@ try {
 
     res.status(200).json({
         success:true,
-        message:"Project created successfully",
+        message:"Project data created successfully",
         data:result
     })
     
@@ -25,7 +25,7 @@ try {
         const result = await ProjectService.getAllProject();
         res.status(200).json({
             success:true,
-            message: "Project fetched successfully",
+            message: "Project data fetched successfully",
             data:result
         })
         
@@ -35,8 +35,50 @@ try {
 
  }
 
+ const updateProject = async (req:Request,res:Response) =>{
+    try {
+        const id = Number(req.params.id);
+        const payload = req.body;
+
+        const result = await ProjectService.updateProject(id, payload)
+        res.status(200).json({
+            success:true,
+            message: "Project data  updated successfully",
+            data:result
+        })
+        
+    } catch (error) {
+        console.log(error)
+    }
+   
+ }
+
+ 
+ const deleteProject = async (req:Request,res:Response) =>{
+    try {
+        const id = Number(req.params.id);
+        const payload = req.body;
+
+        const result = await ProjectService.deleteProject(id, payload)
+        res.status(200).json({
+            success:true,
+            message: "Project data deleted  successfully",
+            data:result
+        })
+        
+    } catch (error) {
+        console.log(error)
+    }
+   
+ }
+
+ 
+
+  
 
  export const ProjectController = {
     createProject,
-    getAllProject
+    getAllProject,
+    updateProject,
+    deleteProject
  }
