@@ -51,7 +51,7 @@ const ParticlesBackground = () => {
     }
 
     const particles: Particle[] = [];
-    const particleCount = 500;
+    const particleCount = 300;
     for (let i = 0; i < particleCount; i++) {
       particles.push(new Particle());
     }

@@ -10,7 +10,10 @@ export default function PublicLayout({
   return (
     <>
       <Navber/>
-      <main className="min-h-dvh">{children}</main>
+      <main className="min-h-dvh">
+            {children} 
+        
+      </main>
       <Footer/>
     </>
   );

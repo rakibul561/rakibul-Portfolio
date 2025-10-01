@@ -41,14 +41,14 @@ const Navber = () => {
       <nav
         className={`w-full fixed top-0 z-50 ${scroll ? "md:py-8 py-6 backdrop-blur-3xl" : "py-3 bg-transparent"} transition-all ease-in duration-300 px-3 md:px-0`}
       >
-        <div className={`flex justify-between items-center max-w-7xl mx-auto`}>
+        <div className={`flex mt-4 text-2xl justify-between items-center max-w-7xl mx-auto`}>
           <div className="w-32">
             {/* <img src={logo} alt="" /> */}
             <h1> hello</h1>
           </div>
           {/* mobile device */}
           <ul
-            className={`flex flex-col md:hidden items-center gap-10 uppercase text-sm cursor-pointer font-italic  text-slate-300  text-[12px] font-medium  ${ isToggle ? "sidebar-open" : "sidebar-closed"} `}>
+            className={`flex flex-col md:hidden items-center gap-10 uppercase text-sm cursor-pointer font-italic  text-slate-300  text-[16px] font-medium  ${ isToggle ? "sidebar-open" : "sidebar-closed"} `}>
             <div className="w-32">
             {/* <img src={logo} alt="" /> */}
             <h1>hello</h1>
@@ -69,7 +69,7 @@ const Navber = () => {
             ))}
           </ul>
           {/* laptop device */}
-          <ul className={` md:flex hidden items-center gap-7 uppercase cursor-pointer font-italic  text-slate-300  text-[12px] font-medium`}>
+          <ul className={` md:flex hidden items-center  gap-7 uppercase cursor-pointer font-italic  text-slate-300  text-[16px] font-medium`}>
             {links.map((nav, i) => (
               <li key={i + 1}>
                 <ScrollLink

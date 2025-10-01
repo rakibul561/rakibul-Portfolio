@@ -1,11 +1,42 @@
-import ParticlesBackground from "@/components/ParticlesBackground";
+// pages/index.js
+'use client';
+
+import Loading from '@/components/Loading/Loading';
+import ParticlesBackground from '@/components/ParticlesBackground';
+import { useEffect, useState } from 'react';
 
 
-export default function HomePage() {
+
+const LoadingSpinner = () => {
   return (
-    <div>
-       <ParticlesBackground/>
-      <h2 className="text-center my-5 text-4xl">Featured Posts</h2>
+    <div className="flex items-center justify-center min-h-screen bg-black">
+      <Loading />
+    </div>
+  );
+};
+
+
+export default function Home() {
+  const [isLoading, setIsLoading] = useState(true);
+
+  // Simulate a loading delay
+  useEffect(() => {
+    const fetchData = async () => {
+      await new Promise((resolve) => setTimeout(resolve, 2000));
+      setIsLoading(false);
+    };
+    fetchData();
+  }, []);
+
+  return (
+    <div className="relative min-h-screen">
+      {isLoading && <LoadingSpinner />}
+      {!isLoading && (
+        <>
+          <ParticlesBackground />
+          
+        </>
+      )}
     </div>
   );
 }

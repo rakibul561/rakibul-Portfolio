@@ -9,8 +9,11 @@
     "lint": "eslint"
   },
   "dependencies": {
+    "@types/aos": "^3.0.7",
     "@types/react-scroll": "^1.8.10",
+    "aos": "^2.3.4",
     "next": "15.5.4",
+    "rc-progress": "^4.0.0",
     "react": "19.1.0",
     "react-dom": "19.1.0",
     "react-scroll": "^1.9.3"
