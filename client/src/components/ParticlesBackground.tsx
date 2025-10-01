@@ -32,7 +32,7 @@ const ParticlesBackground = () => {
         this.y = Math.random() * canvas.height;
         this.vx = (Math.random() - 0.5) * 0.5;
         this.vy = (Math.random() - 0.5) * 0.5;
-        this.radius = Math.random() * 1.1 + 0.1;
+        this.radius = Math.random() * 1.2 + 0.2;
       }
 
       update() {
@@ -45,13 +45,13 @@ const ParticlesBackground = () => {
       draw() {
         ctx.beginPath();
         ctx.arc(this.x, this.y, this.radius, 0, Math.PI * 2);
-        ctx.fillStyle = '#FFFFFF';
+        ctx.fillStyle = '#38bdf8'; // cyan-blue particles
         ctx.fill();
       }
     }
 
     const particles: Particle[] = [];
-    const particleCount = 300;
+    const particleCount = 120;
     for (let i = 0; i < particleCount; i++) {
       particles.push(new Particle());
     }
@@ -64,7 +64,12 @@ const ParticlesBackground = () => {
     window.addEventListener('mousemove', handleMouseMove);
 
     const animate = () => {
-      ctx.fillStyle = 'rgba(0, 0, 0, 0.1)';
+      // Gradient background fill
+      const gradient = ctx.createLinearGradient(0, 0, 0, canvas.height);
+      gradient.addColorStop(0, 'rgba(10, 10, 35, 0.9)');   // top
+      gradient.addColorStop(0.5, 'rgba(15, 13, 45, 0.9)'); // middle
+      gradient.addColorStop(1, 'rgba(5, 8, 22, 0.9)');     // bottom
+      ctx.fillStyle = gradient;
       ctx.fillRect(0, 0, canvas.width, canvas.height);
 
       particles.forEach(particle => {
@@ -77,8 +82,8 @@ const ParticlesBackground = () => {
         const distance = Math.sqrt(dx * dx + dy * dy);
         if (distance < 100) {
           ctx.beginPath();
-          ctx.strokeStyle = `rgba(255, 255, 255, ${(1 - distance / 100) * 0.8})`; // <<----- Changed line color to be lighter
-          ctx.lineWidth = 1; // <<----- Reduced line width
+          ctx.strokeStyle = `rgba(56, 189, 248, ${(1 - distance / 100) * 0.8})`; // cyan line
+          ctx.lineWidth = 0.8;
           ctx.moveTo(particle.x, particle.y);
           ctx.lineTo(mouse.x, mouse.y);
           ctx.stroke();
@@ -99,7 +104,7 @@ const ParticlesBackground = () => {
   return (
     <canvas
       ref={canvasRef}
-      className="fixed top-0 left-0 w-full h-full bg-black -z-10"
+      className="fixed top-0 left-0 w-full h-full -z-10"
     />
   );
 };

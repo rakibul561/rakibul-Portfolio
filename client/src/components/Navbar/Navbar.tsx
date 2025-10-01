@@ -2,8 +2,10 @@
 
 import { useEffect, useState } from "react";
 import Link from "next/link";
-import { usePathname } from "next/navigation"; // for active link
+import { usePathname } from "next/navigation"; 
 import './Navbar.css';
+import Image from "next/image";
+
 
 const Navber = () => {
   const [isToggle, setIsToggle] = useState(false);
@@ -33,15 +35,25 @@ const Navber = () => {
       className={`w-full fixed top-0 z-50 ${scroll ? "md:py-8 py-6 backdrop-blur-3xl" : "py-3 bg-transparent"} transition-all ease-in duration-300 px-3 md:px-0`}
     >
       <div className="flex mt-4 text-2xl justify-between items-center max-w-7xl mx-auto">
-        {/* Logo */}
-        <div className="w-32">
-          <h1>hello</h1>
-        </div>
+        <Image
+                src="/logo.png"
+                alt="Rakibul Coder Logo"
+                width={120} 
+                height={40} 
+                priority 
+            />
+        
 
         {/* Mobile Menu */}
         <ul className={`flex flex-col md:hidden items-center gap-10 uppercase text-sm cursor-pointer font-italic text-slate-300 text-[16px] font-medium ${isToggle ? "sidebar-open" : "sidebar-closed"}`}>
           <div className="w-32">
-            <h1>hello</h1>
+            <Image
+                src="/logo.png"
+                alt="Rakibul Coder Logo"
+                width={120} 
+                height={40} 
+                priority 
+            />
           </div>
           {links.map((nav, i) => (
             <li key={i}>

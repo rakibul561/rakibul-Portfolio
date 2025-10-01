@@ -1,6 +1,7 @@
 // pages/index.js
 'use client';
 
+import Banner from '@/components/Home/Hero';
 import Loading from '@/components/Loading/Loading';
 import ParticlesBackground from '@/components/ParticlesBackground';
 import { useEffect, useState } from 'react';
@@ -34,6 +35,8 @@ export default function Home() {
       {!isLoading && (
         <>
           <ParticlesBackground />
+          <Banner/>
+    
           
         </>
       )}
