@@ -3,7 +3,7 @@
 import Lottie from "lottie-react";
 import codingAnimatoin from "../../assets/lottie-animation/coading.json";
 import { Typewriter } from "react-simple-typewriter";
-import { FaFacebookF, FaLinkedinIn, FaGithub, FaDiscord } from "react-icons/fa";
+import { FaFacebookF, FaLinkedinIn, FaGithub } from "react-icons/fa";
 import { Link as ScrollLink } from "react-scroll";
 import helloAnimation from "../../assets/lottie-animation/hello.json";
 import "./banner.css";
@@ -161,3 +161,4 @@ const Banner = () => {
 };
 
 export default Banner;
+

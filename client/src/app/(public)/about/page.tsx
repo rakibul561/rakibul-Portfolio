@@ -1,9 +1,10 @@
+import HeroSection from "@/components/About/About";
 
 
 const AboutPage = () => {
     return (
         <div>
-            AboutPage
+            <HeroSection/>
         </div>
     );
 };

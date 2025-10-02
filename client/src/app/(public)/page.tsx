@@ -1,9 +1,11 @@
 // pages/index.js
 'use client';
 
+import HeroSection from '@/components/About/About';
 import Banner from '@/components/Home/Hero';
 import Loading from '@/components/Loading/Loading';
 import ParticlesBackground from '@/components/ParticlesBackground';
+import Skils from '@/components/skills/Skills';
 import { useEffect, useState } from 'react';
 
 
@@ -36,6 +38,9 @@ export default function Home() {
         <>
           <ParticlesBackground />
           <Banner/>
+               <HeroSection/>
+          <Skils/>
+     
     
           
         </>

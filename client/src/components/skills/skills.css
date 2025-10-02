@@ -1,0 +1,55 @@
+.tab-btn {
+  padding: 3px 13px;
+  position: relative;
+  border: 2px ridge #149cea;
+  outline: none;
+  background-color: transparent;
+  color: rgb(189, 196, 203);
+  transition: 1s;
+  border-radius: 0.3em;
+  font-size: 16px;
+  font-weight: 500;
+  cursor: pointer;
+}
+
+.tab-btn::after {
+  content: "";
+  position: absolute;
+  top: -10px;
+  left: 12%;
+  width: 75%;
+  height: 40%;
+  background-color: #010610;
+  transition: 0.5s;
+  transform-origin: center;
+}
+
+.tab-btn::before {
+  content: "";
+  transform-origin: center;
+  position: absolute;
+  top: 80%;
+  left: 12%;
+  width: 75%;
+  height: 40%;
+  background-color: #010610;
+  transition: 0.5s;
+}
+
+.tab-btn:hover::before,
+.tab-btn:hover::after {
+  transform: scale(0);
+}
+
+.tab-btn:hover {
+  box-shadow: inset 0px 0px 25px #1479ea;
+}
+
+/*! active button style */
+.tab-active:before,
+.tab-active::after {
+  transform: scale(0);
+}
+.tab-active {
+  box-shadow: inset 0px 0px 25px #1479ea;
+}

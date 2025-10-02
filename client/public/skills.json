@@ -1,0 +1,156 @@
+[
+    {
+        "id": 1,
+        "name": "JavaScript",
+        "side": "Frontend/backend",
+        "logo": "https://i.ibb.co.com/8gnK0CrY/javascript.png",
+        "category": "Expertise"
+    },
+    {
+        "id": 2,
+        "name": "React.js",
+        "side": "Frontend",
+        "logo": "https://i.ibb.co.com/QF1cbmms/react.png",
+        "category": "Expertise"
+    },
+    {
+        "id": 3,
+        "name": "HTML5",
+        "side": "Frontend",
+        "logo": "https://i.ibb.co.com/JRv26NXW/logo-2582748-1280.webp",
+        "category": "Expertise"
+    },
+    {
+        "id": 4,
+        "name": "CSS3",
+        "side": "Frontend",
+        "logo": "https://i.ibb.co.com/N2dZnBJR/images.jpg",
+        "category": "Expertise"
+    },
+    {
+        "id": 5,
+        "name": "Tailwindcss",
+        "side": "Frontend",
+        "logo": "https://i.ibb.co.com/Cp2mmyLm/tailwinds.png",
+        "category": "Expertise"
+    },
+    {
+        "id": 6,
+        "name": "Bootstrap5",
+        "side": "Frontend",
+        "logo": "https://i.ibb.co.com/FdBck4D/bostrap.png",
+        "category": "Expertise"
+    },
+    {
+        "id": 7,
+        "name": "Node.js",
+        "side": "Backend",
+        "logo": "https://i.ibb.co.com/R4QYM0yw/node.png",
+        "category": "Familiar"
+    },
+    {
+        "id": 8,
+        "name": "Express.js",
+        "side": "Backend",
+        "logo": "https://i.ibb.co.com/VcTwgR9w/express.png",
+        "category": "Comfortable"
+    },
+    {
+        "id": 9,
+        "name": "MongoDB",
+        "side": "DataBase",
+        "logo": "https://i.ibb.co.com/cX75c3FT/mongodb.png",
+        "category": "Comfortable"
+    },
+    {
+        "id": 10,
+        "name": "Next.js",
+        "side": "Frontend/backend",
+        "logo": "https://i.ibb.co.com/N6vcr6B7/next.png",
+        "category": "Comfortable"
+    },
+    {
+        "id": 11,
+        "name": "JWT",
+        "side": "Backend",
+        "logo": "https://i.ibb.co.com/s9xWswKy/jwt.png",
+        "category": "Familiar"
+    },
+    {
+        "id": 12,
+        "name": "GitHub",
+        "side": "Repositories,",
+        "logo": "https://i.ibb.co.com/Y7Z33ZP9/github.png",
+        "category": "Tools"
+    },
+    {
+        "id": 13,
+        "name": "Vercel",
+        "side": "Deploy",
+        "logo": "https://i.ibb.co.com/Lzg30DWM/vercel.png",
+        "category": "Tools"
+    },
+    {
+        "id": 14,
+        "name": "Firebase",
+        "side": "Authentication",
+        "logo": "https://i.ibb.co.com/1fLMfpWS/firebase.png",
+        "category": "Comfortable"
+    },
+    {
+        "id": 15,
+        "name": "Mongoose",
+        "side": "Backend",
+        "logo": "https://i.ibb.co.com/3yVWW084/mongoose.png",
+        "category": "Familiar"
+    },
+    {
+        "id": 16,
+        "name": "Git",
+        "side": "VersionControl ",
+        "logo": "https://i.ibb.co.com/5hrBVNRQ/git.png",
+        "category": "Tools"
+    },
+    {
+        "id": 17,
+        "name": "Figma",
+        "side": "Design",
+        "logo": "https://i.ibb.co.com/qTkX6jY/figma.png",
+        "category": "Tools"
+    },
+    {
+        "id": 18,
+        "name": "Canva",
+        "side": "Design",
+        "logo": "https://i.ibb.co.com/r2tpGh6R/canva.jpg",
+        "category": "Tools"
+    },
+    {
+        "id": 19,
+        "name": "TypeScript",
+        "side": "Frontend/backend",
+        "logo": "https://i.ibb.co.com/8DLMhpgK/ts.webp",
+        "category": "Comfortable"
+    },
+    {
+        "id": 20,
+        "name": "Shadcn UI",
+        "side": "Frontend",
+        "logo": "https://i.ibb.co.com/KcQdfnc1/shad-cn.png",
+        "category": "Familiar"
+    },
+    {
+        "id": 21,
+        "name": "PostgreSQL",
+        "side": "DataBase",
+        "logo": "https://i.ibb.co.com/RGsm4Xvn/post.png",
+        "category": "Comfortable"
+    },
+    {
+        "id": 22,
+        "name": "Prisma",
+        "side": "Backend/ORM",
+        "logo": "https://i.ibb.co.com/m5nhhKkg/prismas.png",
+        "category": "Familiar"
+    }
+]
