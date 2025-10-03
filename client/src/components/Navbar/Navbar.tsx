@@ -20,6 +20,7 @@ const Navber = () => {
     { path: "/projects", label: "Projects" },
     { path: "/services", label: "Services" },
     { path: "/contact", label: "Contact" },
+    { path: "/login", label: "Login" },
   ];
 
   useEffect(() => {
