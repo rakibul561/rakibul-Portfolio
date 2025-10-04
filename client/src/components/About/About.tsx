@@ -3,7 +3,11 @@
 import Image from "next/image";
 import rakib from '../../assets/image/rakib.png'
 
+
 export default function HeroSection() {
+   
+
+
   return (
     <section className="bg-gradient-to-br from-gray-900 via-blue-900 to-purple-900 dark:from-gray-950 dark:via-blue-950 dark:to-purple-950">
       <div className="container px-6 py-10 mx-auto lg:py-16">

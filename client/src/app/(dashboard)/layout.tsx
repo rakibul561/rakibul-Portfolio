@@ -1,12 +1,15 @@
+import Sidebar from "@/components/shared/Sidebar";
 
 
-const DashboardLayout = ({children}:{children:React.ReactNode}) => {
-    return (
-        <div className="flex">
-            
-            {children}
-        </div>
-    );
-};
-
-export default DashboardLayout;
+export default function DashboardLayout({
+  children,
+}: Readonly<{
+  children: React.ReactNode;
+}>) {
+  return (
+    <main className="min-h-dvh flex gap-4">
+      <Sidebar />
+      {children}
+    </main>
+  );
+}

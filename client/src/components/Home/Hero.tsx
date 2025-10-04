@@ -11,7 +11,7 @@ import Aos from "aos";
 import "aos/dist/aos.css";
 import { useEffect } from "react";
 import Swal from "sweetalert2";
-const Banner = () => {
+const Banner =  () => {
   useEffect(() => {
     Aos.init({
       duration: 1500,

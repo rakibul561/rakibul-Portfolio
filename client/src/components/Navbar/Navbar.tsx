@@ -7,10 +7,12 @@ import './Navbar.css';
 import Image from "next/image";
 
 
-const Navber = () => {
+const Navber =  () => {
   const [isToggle, setIsToggle] = useState(false);
   const [scroll, setScroll] = useState(false);
   const pathname = usePathname();
+
+
 
   // navs links
   const links = [

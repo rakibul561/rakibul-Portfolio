@@ -44,6 +44,7 @@ export default function LoginForm() {
         callbackUrl: "/",
       })
       
+      
     } catch (error) {
       console.log(error)
     }
@@ -53,7 +54,7 @@ export default function LoginForm() {
 
   return (
     <div className="flex justify-center items-center min-h-screen">
-      <div className="space-y-6 w-full max-w-md bg-red-700 p-8 rounded-lg shadow-md">
+      <div className="space-y-6 w-full max-w-md  p-8 rounded-lg shadow-md">
         <Form {...form}>
           <form
             onSubmit={form.handleSubmit(onSubmit)}
