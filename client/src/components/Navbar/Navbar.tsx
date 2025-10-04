@@ -7,10 +7,12 @@ import './Navbar.css';
 import Image from "next/image";
 
 
+
 const Navber =  () => {
   const [isToggle, setIsToggle] = useState(false);
   const [scroll, setScroll] = useState(false);
   const pathname = usePathname();
+
 
 
 
@@ -23,6 +25,7 @@ const Navber =  () => {
     { path: "/services", label: "Services" },
     { path: "/contact", label: "Contact" },
     { path: "/login", label: "Login" },
+    { path: "/dashboard", label: "Dashboard" },
   ];
 
   useEffect(() => {

@@ -7,6 +7,7 @@ import { signOut, useSession } from "next-auth/react";
 
 export default function Sidebar() {
   const session = useSession();
+  console.log(session)
 
   return (
     <aside className="flex h-screen w-64 flex-col border-r bg-black text-white">
@@ -28,21 +29,21 @@ export default function Sidebar() {
           Create Blog
         </Link>
         <Link
-          href="/dashboard/create-blog"
+          href="/dashboard/create-project"
           className="flex items-center gap-2 rounded-lg px-3 py-2 text-sm font-medium hover:bg-gray-100 hover:text-black"
         >
           <PlusCircle className="h-4 w-4" />
           Create Project
         </Link>
         <Link
-          href="/dashboard/create-blog"
+          href="/dashboard/manage-blog"
           className="flex items-center gap-2 rounded-lg px-3 py-2 text-sm font-medium hover:bg-gray-100 hover:text-black"
         >
           <ClipboardList className="h-4 w-4" />
           Manage Blog
         </Link>
         <Link
-          href="/dashboard/create-blog"
+          href="/dashboard/manage-project"
           className="flex items-center gap-2 rounded-lg px-3 py-2 text-sm font-medium hover:bg-gray-100 hover:text-black"
         >
           <ClipboardList className="h-4 w-4" />
@@ -51,7 +52,7 @@ export default function Sidebar() {
       </nav>
 
       {/* Bottom action */}
-      <div className="p-4 border-t border-gray-500">
+      <div className="p-4 border-t ">
         {session.status === "authenticated" && (
           <Button
             variant="destructive"

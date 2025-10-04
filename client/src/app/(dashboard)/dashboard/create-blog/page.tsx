@@ -1,11 +1,12 @@
+import AddBlog from '@/components/module/Blogs/CreateBlogFrom';
 import React from 'react';
 
 const CreateBlog = () => {
-    return (
-        <div>
-            <h1>Create Blog</h1>
-        </div>
-    );
+  return (
+    <div className='w-full flex justify-center items-center '>
+      <AddBlog/>
+    </div>
+  );
 };
 
 export default CreateBlog;

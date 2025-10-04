@@ -41,7 +41,7 @@ export default function LoginForm() {
 
       signIn("credentials", {
         ...values,
-        callbackUrl: "/",
+        callbackUrl: "/dashboard",
       })
       
       
