@@ -1,4 +1,5 @@
-"use client"
+
+"use client";
 import { useForm } from "react-hook-form";
 import { Button } from "@/components/ui/button";
 import { Input } from "@/components/ui/input";
@@ -18,39 +19,58 @@ import {
   CardContent,
   CardFooter,
 } from "@/components/ui/card";
+import toast from "react-hot-toast";
 
-type TourFormData = {
+import { Textarea } from "@/components/ui/textarea";
+import { useRouter } from "next/navigation";
+
+
+
+
+type BlogFormData = {
   title: string;
   content: string;
   thumbnail: string;
 };
 
 export default function AddBlog() {
-  const form = useForm<TourFormData>({
+
+    const router = useRouter()
+
+
+  const form = useForm<BlogFormData>({
     defaultValues: {
       title: "",
-       content: '',
-     thumbnail: ''
+      content: "",
+      thumbnail: "",
     },
   });
 
-  const onSubmit = async (data: TourFormData) => {
-    const  modifyData = {
-      ...data,
-      authorId: 1
-    }
+  const onSubmit = async (data: BlogFormData) => {
+    try {
+      const modifyData = {
+        ...data,
+        authorId: 1,
+      };
 
-    const res = await fetch('http://localhost:5000/api/blog', {
-      method:"POST",
-      headers: {
-        "Content-Type": "application/json",
-      },
-      body: JSON.stringify(modifyData)
-
-    })
-    const result = await  res.json();
-    console.log(result)
+      const res = await fetch("http://localhost:5000/api/blog", {
+        method: "POST",
+        headers: {
+          "Content-Type": "application/json",
+        },
+        body: JSON.stringify(modifyData),
+      });
+      const result = await res.json();
+      toast.success("Blog created Successfully");
     
+      form.reset();
+       router.push("/blogs"); 
+        
+    
+      return result;
+    } catch (error) {
+      console.log(error);
+    }
   };
 
   return (
@@ -73,7 +93,7 @@ export default function AddBlog() {
                 name="title"
                 render={({ field }) => (
                   <FormItem>
-                    <FormLabel>Tour Title</FormLabel>
+                    <FormLabel>blog Title</FormLabel>
                     <FormControl>
                       <Input placeholder="Enter tour title" {...field} />
                     </FormControl>
@@ -89,7 +109,7 @@ export default function AddBlog() {
                   <FormItem>
                     <FormLabel>content</FormLabel>
                     <FormControl>
-                      <Input placeholder="Enter tour location" {...field} />
+                      <Textarea placeholder="Enter tour location" {...field} />
                     </FormControl>
                     <FormMessage />
                   </FormItem>
@@ -114,7 +134,11 @@ export default function AddBlog() {
         </CardContent>
 
         <CardFooter className="flex  justify-end">
-          <Button type="submit" form="simple-tour-form" className="bg-blue-600 hover:bg-blue-700">
+          <Button
+            type="submit"
+            form="simple-tour-form"
+            className="bg-blue-600 hover:bg-blue-700"
+          >
             Create Blog
           </Button>
         </CardFooter>

@@ -1,9 +1,10 @@
+import CreateProjectForm from "@/components/module/Project/CreateProjectForm";
 
 
 const CreateProject = () => {
     return (
-        <div>
-            <h2> Create Project</h2>
+        <div className="w-full flex justify-center items-center">
+            <CreateProjectForm/>
         </div>
     );
 };

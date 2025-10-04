@@ -22,7 +22,7 @@ const Navber =  () => {
     { path: "/about", label: "About" },
     { path: "/skills", label: "Skills" },
     { path: "/projects", label: "Projects" },
-    { path: "/services", label: "Services" },
+    { path: "/blogs", label: "All-Blogs" },
     { path: "/contact", label: "Contact" },
     { path: "/login", label: "Login" },
     { path: "/dashboard", label: "Dashboard" },
