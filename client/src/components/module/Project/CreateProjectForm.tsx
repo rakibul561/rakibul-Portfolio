@@ -48,7 +48,32 @@ export default function AddProject() {
   });
 
   const onSubmit = async (data: ProjectFormData) => {
-    console.log(data);
+    try {
+    
+      const modifyData = {
+        ...data,
+        githubUrl: data.githubUrl.split(",").map((url) => url.trim()),
+        features: data.features.split(",").map((f) => f.trim()),
+        technology: data.technology.split(",").map((t) => t.trim()),
+        ownerId: 1,
+      };
+
+      console.log(modifyData)
+
+      const res = await fetch("http://localhost:5000/api/project", {
+        method: "POST",
+        headers: { "Content-Type": "application/json" },
+        body: JSON.stringify(modifyData),
+      });
+
+      await res.json();
+      toast.success("Project created Successfully");
+      form.reset();
+      router.push("/projects"); 
+    } catch (error) {
+      console.log(error);
+      toast.error("Something went wrong!");
+    }
   };
 
   return (
