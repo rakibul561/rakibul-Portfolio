@@ -4,10 +4,10 @@ import { Metadata } from "next";
 export const metadata: Metadata = {
   title: "Project | Next Project",
   description:
-    "Browse all blog posts on web development, Next.js, React, and more. Stay updated with the latest tutorials and articles.",
+    "Browse all Project posts on web development.",
 };
 
-const AllProjectPage = async () => {
+const AllProject = async () => {
   const res = await fetch(`${process.env.NEXT_BASE_API}/api/project`, {
     cache: "no-store",
   });
@@ -24,4 +24,4 @@ const AllProjectPage = async () => {
   );
 };
 
-export default AllProjectPage;
+export default AllProject;

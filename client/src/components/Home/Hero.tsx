@@ -1,5 +1,6 @@
 /* eslint-disable react/no-unescaped-entities */
 /* eslint-disable react/jsx-no-target-blank */
+"use client"
 import Lottie from "lottie-react";
 import codingAnimatoin from "../../assets/lottie-animation/coading.json";
 import { Typewriter } from "react-simple-typewriter";

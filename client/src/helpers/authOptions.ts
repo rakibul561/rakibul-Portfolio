@@ -52,7 +52,6 @@ export const authOptions: NextAuthOptions = {
 
           const data = await res.json();
 
-          // ✅ Backend response থেকে শুধু user object বের করি
           if (data.success && data.user) {
             const { id, name, email } = data.user;
 
@@ -91,7 +90,7 @@ export const authOptions: NextAuthOptions = {
     },
   },
 
-  secret: process.env.AUTH_SECRET,
+  secret: process.env.NEXTAUTH_SECRET,
 
   pages: {
     signIn: "/login",

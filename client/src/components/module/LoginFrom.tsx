@@ -13,9 +13,9 @@ import {
   FormLabel,
   FormMessage,
 } from "@/components/ui/form";
-import { login } from "@/actions/auth";
-import toast from "react-hot-toast";
+
 import { signIn } from "next-auth/react";
+import toast from "react-hot-toast";
 
 // type LoginFormValues = {
 //   email: string;
@@ -43,6 +43,7 @@ export default function LoginForm() {
         ...values,
         callbackUrl: "/dashboard",
       })
+      toast.success("Login successful")
       
       
     } catch (error) {
@@ -53,8 +54,8 @@ export default function LoginForm() {
 
 
   return (
-    <div className="flex justify-center items-center min-h-screen">
-      <div className="space-y-6 w-full max-w-md  p-8 rounded-lg shadow-md">
+    <div className="flex justify-center items-center pt-20 mb-2">
+      <div className="space-y-6 w-full bg-[#112240] max-w-md  p-8 rounded-lg shadow-md">
         <Form {...form}>
           <form
             onSubmit={form.handleSubmit(onSubmit)}
@@ -100,15 +101,11 @@ export default function LoginForm() {
               )}
             />
 
-            <Button type="submit" className="w-full mt-2">
+            <Button type="submit" className="w-full bg-blue-600 hover:bg-blue-700 button mt-2">
               Login
             </Button>
 
-            <div className="flex items-center justify-center space-x-2">
-              <div className="h-px w-16 bg-gray-300" />
-              <span className="text-sm text-gray-500">or continue with</span>
-              <div className="h-px w-16 bg-gray-300" />
-            </div>
+           
           </form>
         </Form>
         

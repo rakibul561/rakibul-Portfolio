@@ -56,10 +56,10 @@ export default function Sidebar() {
         {session.status === "authenticated" && (
           <Button
             variant="destructive"
-            className="w-full justify-start gap-2 cursor-pointer"
+            className="w-full justify-start gap-2 cursor-pointer bg-red-600 hover:bg-red-700"
             onClick={() => signOut()}
           >
-            <LogOut className="h-4 w-4" />
+            <LogOut className="h-4 button  w-4" />
             Logout
           </Button>
         )}
