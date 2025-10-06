@@ -11,6 +11,7 @@ import {
   TableRow,
 } from "@/components/ui/table";
 import toast from "react-hot-toast";
+import Image from "next/image";
 
 type Project = {
   id: number;
@@ -24,9 +25,7 @@ type Project = {
 const ProjectTable = ({ projects }: { projects: Project[] }) => {
   const [projectList, setProjectList] = useState(projects);
 
- 
   const handleDelete = async (id: number) => {
-   
     try {
       const res = await fetch(`http://localhost:5000/api/project/${id}`, {
         method: "DELETE",
@@ -39,8 +38,6 @@ const ProjectTable = ({ projects }: { projects: Project[] }) => {
       } else {
         toast.error("Failed to delete project");
       }
-
-
     } catch (err) {
       console.error(err);
       toast.error("Something went wrong!");
@@ -68,11 +65,14 @@ const ProjectTable = ({ projects }: { projects: Project[] }) => {
               <TableCell className="font-medium">{project.id}</TableCell>
 
               <TableCell>
-                <img
-                  src={project.image}
-                  alt={project.title}
-                  className="w-14 h-14 rounded object-cover border border-gray-600"
-                />
+                <div className="relative w-14 h-14">
+                  <Image
+                    src={project.image ?? "/placeholder.png"}
+                    alt={project.title}
+                    fill
+                    className="rounded object-cover border border-gray-600"
+                  />
+                </div>
               </TableCell>
 
               <TableCell>{project.title}</TableCell>

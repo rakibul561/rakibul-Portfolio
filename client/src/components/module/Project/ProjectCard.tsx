@@ -22,6 +22,7 @@ import "aos/dist/aos.css";
 import { useEffect, useState } from "react";
 
 import projectAnimation from "../../../assets/lottie-animation/project.json";
+import Image from "next/image";
 
 interface Project {
   id: number;
@@ -100,11 +101,12 @@ const ProjectCard = ({ post }: { post: Project[] }) => {
                 key={project.id}
                 className="project-card p-4 rounded-lg bg-gradient-to-br from-[#05163b] via-[#092152] to-[#010610] border border-[#03e9f4]/30 shadow-[0_0_15px_#03e9f477]"
               >
-                <div className="h-48 overflow-hidden rounded-md mb-3">
-                  <img
+                <div className="h-48 overflow-hidden rounded-md mb-3 relative">
+                  <Image
                     src={project.image}
-                    className="w-full h-full object-cover rounded-md"
                     alt={project.title}
+                    fill
+                    className="object-cover rounded-md"
                   />
                 </div>
 
@@ -159,7 +161,7 @@ const ProjectCard = ({ post }: { post: Project[] }) => {
                               rel="noreferrer"
                               className="text-cyan-300 hover:text-cyan-100 flex items-center gap-2 text-xl"
                             >
-                              github  <FaGithub />
+                              github <FaGithub />
                             </a>
                           </li>
                         ))}

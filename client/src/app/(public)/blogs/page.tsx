@@ -10,7 +10,9 @@ export const metadata: Metadata = {
 
 const AllBlogsPage = async () => {
   const res = await fetch(`${process.env.NEXT_BASE_API}/api/blog`, {
-    cache: "no-store",
+    next: {
+      revalidate: 30,
+    },
   });
   const { data: blogs } = await res.json();
   console.log(blogs)

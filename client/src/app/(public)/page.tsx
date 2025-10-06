@@ -1,5 +1,6 @@
 
 import HeroSection from '@/components/About/About';
+import Education from '@/components/Home/Education';
 import AllProject from '@/components/Home/ExtraProject';
 import Banner from '@/components/Home/Hero';
 import ParticlesBackground from '@/components/ParticlesBackground';
@@ -20,6 +21,7 @@ export default function Home() {
           <HeroSection/>
           <Skils/>
           <AllProject/>
+          <Education/>
           
      
     

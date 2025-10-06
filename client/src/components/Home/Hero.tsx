@@ -1,5 +1,4 @@
-/* eslint-disable react/no-unescaped-entities */
-/* eslint-disable react/jsx-no-target-blank */
+
 "use client";
 import Lottie from "lottie-react";
 import codingAnimatoin from "../../assets/lottie-animation/coading.json";
@@ -41,7 +40,7 @@ const Banner = () => {
           </div>
           {/* name */}
           <h1 className="text-4xl font-medium font-Georgian">
-            I'am <span className="text-[#03e9f4]">Rakibul</span>,
+            I,am <span className="text-[#03e9f4]">Rakibul</span>,
           </h1>
           {/* intro */}
           <h1 className=" text-3xl md:text-5xl font-semibold text-white text-color-change font-Georgian">

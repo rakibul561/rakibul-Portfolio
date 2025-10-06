@@ -1,10 +1,9 @@
-/* eslint-disable @typescript-eslint/no-unused-vars */
-/* eslint-disable react/prop-types */
 import "./item.css";
 import Aos from "aos";
 import "aos/dist/aos.css";
 import { useEffect } from "react";
 import "./item.css";
+import Image from "next/image";
 interface Skill {
   id: string | number;
   side: string;
@@ -30,7 +29,8 @@ const SkillsItems = ({ skills }: SkillsItemsProps) => {
           data-aos="fade-up"
           data-aos-duration="1500"
           key={skill?.id}
-          className="tooltip-container">
+          className="tooltip-container"
+        >
           <div className="tooltip">
             <div className="side">
               <div className="about font-Georgian">{skill?.side}</div>
@@ -44,11 +44,14 @@ const SkillsItems = ({ skills }: SkillsItemsProps) => {
                 <span></span>
                 <span></span>
                 <span className="p-2 md:p-3">
-                  <img
-                    src={skill?.logo}
-                    className="w-full img h-full object-cover rounded-full border-2 border-[#11c6cf]"
-                    alt=""
-                  />
+                  <div className="relative w-full h-full">
+                    <Image
+                      src={skill?.logo}
+                      alt={skill?.name || "Skill icon"}
+                      fill
+                      className="object-cover rounded-full border-2 border-[#11c6cf]"
+                    />
+                  </div>
                 </span>
               </div>
               <div className="text font-italic">{skill?.name}</div>
