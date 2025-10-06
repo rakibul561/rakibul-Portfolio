@@ -2,7 +2,7 @@ import React from "react";
 
 const educationData = [
   {
-    institution: "Moulvibazar Polytechnic Institute",
+    institution: "Moulvibazar Polytechnic Institute (Sylhet) ",
     degree: "Diploma in Engineering",
     department: "CSE",
     year: "2022–2026",
@@ -10,7 +10,7 @@ const educationData = [
     resultValue: "3.30 (last semester)",
   },
   {
-    institution: "Mir KandaPara High School",
+    institution: "Mir KandaPara High School (Mymensingh) ",
     degree: "SSC",
     department: "Science",
     year: "2021",

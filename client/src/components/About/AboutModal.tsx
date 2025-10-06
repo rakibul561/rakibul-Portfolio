@@ -15,6 +15,7 @@ export function DialogDemo() {
   return (
     <Dialog>
       <DialogTrigger asChild>
+        
         <Button
           variant="outline"
           className="text-[#0592E0] text-xl flex items-center gap-2"
@@ -55,7 +56,7 @@ export function DialogDemo() {
 
         <DialogFooter className="mt-6">
           <DialogClose asChild>
-            <Button variant="outline">
+            <Button variant="outline" className="text-[#0592E0]">
               {" "}
               <MoveLeft /> Back{" "}
             </Button>

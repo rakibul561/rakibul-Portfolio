@@ -3,7 +3,7 @@ import Link from "next/link";
 import Image from "next/image";
 
 export default function BlogCard({ post }: { post: any }) {
-  console.log(post.thumbnail);
+ 
 
   // Safe thumbnail logic
   const thumbnailUrl =
