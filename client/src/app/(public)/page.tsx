@@ -1,5 +1,6 @@
 
 import HeroSection from '@/components/About/About';
+import Contact from '@/components/Home/Contact';
 import Education from '@/components/Home/Education';
 import AllProject from '@/components/Home/ExtraProject';
 import Banner from '@/components/Home/Hero';
@@ -19,9 +20,11 @@ export default function Home() {
           <ParticlesBackground />
           <Banner/>
           <HeroSection/>
+               <Education/>
           <Skils/>
           <AllProject/>
-          <Education/>
+     
+          <Contact/>
           
      
     
