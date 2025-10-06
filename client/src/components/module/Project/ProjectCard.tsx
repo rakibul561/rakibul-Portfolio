@@ -35,7 +35,10 @@ interface Project {
 }
 
 const ProjectCard = ({ post }: { post: Project[] }) => {
-  const [selectedTechnology, setSelectedTechnology] = useState<number | null>(null);
+  console.log(post);
+  const [selectedTechnology, setSelectedTechnology] = useState<number | null>(
+    null
+  );
   const [selectedGithub, setSelectedGithub] = useState<number | null>(null);
   const [currentProjectIndex, setCurrentProjectIndex] = useState(0);
 
@@ -111,19 +114,23 @@ const ProjectCard = ({ post }: { post: Project[] }) => {
                   </h1>
 
                   <div className="relative flex items-center gap-2">
-                    {/* Technology */}
+                    {/* Technology button */}
                     <button
                       style={{ boxShadow: "0px 0px 8px 0px #03e9f4" }}
                       className="btn btn-circle btn-sm border border-[#03e9f4] bg-transparent hover:bg-[#34c5cd] hover:text-white text-[#03e9f4]"
                       onClick={() => handleTechnologyClick(index)}
                     >
-                      {selectedTechnology === index ? <IoMdClose /> : <GrTechnology />}
+                      {selectedTechnology === index ? (
+                        <IoMdClose className="text-xl" />
+                      ) : (
+                        <GrTechnology className="text-xl" />
+                      )}
                     </button>
 
                     {selectedTechnology === index && (
                       <div className="absolute bg-slate-900 border border-[#03e9f4]/30 p-4 rounded-md right-24 bottom-0 w-[180px] shadow-lg">
                         <p className="text-gray-300 text-sm">
-                          Technologies:
+                          Technologies :👇
                           {project.technology.map((tech, i) => (
                             <span key={i} className="block text-gray-400">
                               {i + 1}. {tech}
@@ -133,10 +140,10 @@ const ProjectCard = ({ post }: { post: Project[] }) => {
                       </div>
                     )}
 
-                    {/* GitHub */}
+                    {/* GitHub button */}
                     <button
                       style={{ boxShadow: "0px 0px 8px 0px #03e9f4" }}
-                      className="btn btn-circle btn-sm border border-[#03e9f4] bg-transparent hover:bg-[#34c5cd] hover:text-white text-[#03e9f4]"
+                      className="btn btn-circle border border-[#03e9f4] bg-transparent hover:bg-[#34c5cd] hover:text-white text-[#03e9f4]"
                       onClick={() => handleGithubClick(index)}
                     >
                       {selectedGithub === index ? <IoMdClose /> : <FaGithub />}
@@ -150,9 +157,9 @@ const ProjectCard = ({ post }: { post: Project[] }) => {
                               href={url}
                               target="_blank"
                               rel="noreferrer"
-                              className="text-cyan-300 hover:text-cyan-100 flex items-center gap-2 text-sm"
+                              className="text-cyan-300 hover:text-cyan-100 flex items-center gap-2 text-xl"
                             >
-                              Repo {i + 1} <FaGithub />
+                              github  <FaGithub />
                             </a>
                           </li>
                         ))}
@@ -172,9 +179,22 @@ const ProjectCard = ({ post }: { post: Project[] }) => {
                   </div>
                 </div>
 
-                <p className="text-slate-400 text-sm leading-relaxed">
+                {/* Description */}
+                <p className="text-slate-400 text-sm leading-relaxed mb-3">
                   {project.description}
                 </p>
+
+                {/* ✅ Features section */}
+                <div className="bg-slate-900/60 border border-[#03e9f4]/20 rounded-md p-3">
+                  <h3 className="text-[#03e9f4] text-sm font-semibold mb-1 uppercase">
+                    Features:
+                  </h3>
+                  <ul className="list-disc list-inside text-gray-300 text-sm space-y-1">
+                    {project.features.map((feature, i) => (
+                      <li key={i}>{feature}</li>
+                    ))}
+                  </ul>
+                </div>
               </SwiperSlide>
             ))}
           </Swiper>

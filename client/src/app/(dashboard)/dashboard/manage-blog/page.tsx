@@ -2,7 +2,7 @@
 import BlogTable from "@/components/module/Blogs/BlogTable";
 
 const ManageBlog = async () => {
-  // Fetch blogs
+  
   const res = await fetch(`${process.env.NEXT_BASE_API}/api/blog`, {
     cache: "no-store",
   });

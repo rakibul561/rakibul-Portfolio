@@ -69,8 +69,8 @@ export default function HeroSection() {
                 Introduction:
               </h1>
               
-              <p className="mt-4 text-gray-300 leading-relaxed">
-                Hello, I'm Rakibul, a skilled MERN stack web developer. With a passion for creating seamless digital experiences, I specialize in crafting efficient and user-friendly applications. My expertise spans MongoDB, Express.js, React, and Node.js, allowing me to deliver end-to-end solutions. I thrive on challenges, continuously learn, and am committed to turning your ideas into powerful online realities. Let's collaborate and build something extraordinary
+              <p className="mt-4 text-white leading-relaxed">
+               Hello, I'm Rakibul, a skilled MERN stack web developer. With a passion for creating seamless digital experiences, I specialize in crafting efficient and user-friendly applications. My expertise spans Node.js, Express.js, Mongoose, PostgreSQL, Prisma, Next.js, Redux, and TypeScript., allowing me to deliver end-to-end solutions. I thrive on challenges, continuously learn, and am committed to turning your ideas into powerful online realities. Let's collaborate and build something extraordinary
               </p>
               
               <div className="mt-8">

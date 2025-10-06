@@ -1,6 +1,6 @@
 /* eslint-disable react/no-unescaped-entities */
 /* eslint-disable react/jsx-no-target-blank */
-"use client"
+"use client";
 import Lottie from "lottie-react";
 import codingAnimatoin from "../../assets/lottie-animation/coading.json";
 import { Typewriter } from "react-simple-typewriter";
@@ -11,42 +11,20 @@ import "./banner.css";
 import Aos from "aos";
 import "aos/dist/aos.css";
 import { useEffect } from "react";
-import Swal from "sweetalert2";
-const Banner =  () => {
+import { redirect } from "next/navigation";
+import Link from "next/link";
+const Banner = () => {
   useEffect(() => {
     Aos.init({
       duration: 1500,
       // offset: 200,
     });
   }, []);
+
   const handleBlog = () => {
-    let timerInterval: string | number | NodeJS.Timeout | undefined;
-    Swal.fire({
-      title: "Opps!",
-      icon: "info",
-      html: "My blog is coming soon! #StayTuned <br/> <span>Close in <b></b></span>",
-      timer: 2500,
-      timerProgressBar: true,
-      didOpen: () => {
-        Swal.showLoading();
-        const popup = Swal.getPopup();
-        const timer = popup ? popup.querySelector("b") : null;
-        timerInterval = setInterval(() => {
-          if (timer) {
-            timer.textContent = `${Swal.getTimerLeft()}`;
-          }
-        }, 100);
-      },
-      willClose: () => {
-        clearInterval(timerInterval);
-      },
-    }).then((result) => {
-      /* Read more about handling dismissals below */
-      if (result.dismiss === Swal.DismissReason.timer) {
-        console.log("I was closed by the timer");
-      }
-    });
+    redirect("/blogs");
   };
+
   return (
     <header className=" relative  px-5 md:px-0 ">
       <div className="flex flex-col-reverse lg:flex-row h-[900px] pt-10 items-center gap-2 md:gap-10 max-w-7xl mx-auto">
@@ -70,9 +48,9 @@ const Banner =  () => {
             {/* Style will be inherited from the parent element */}
             <Typewriter
               words={[
+                "Full stack Developer.",
                 "MERN stack Developer.",
-                "Frontend Developer.",
-                "React Developer.",
+                "Backend Developer.",
                 "Web Designer.",
               ]}
               loop={Infinity}
@@ -89,7 +67,7 @@ const Banner =  () => {
             {/* Style will be inherited from the parent element */}
             <Typewriter
               words={[
-                `Hi, i'am Rakibul, MERN stack developer skilled in React/Next.js, Node.js, Express.js, and MongoDB. Committed to creating seamless web experiences with a focus on clean code and user-centric design. Ready to bring technical expertise and innovation to your team`,
+                `Hi, I'm Rakibul, a Full Stack Developer skilled in Node.js, Express.js, Mongoose, PostgreSQL, Prisma, Next.js, Redux, and TypeScript. Passionate about crafting efficient and scalable web solutions with clean architecture and seamless user experience. Dedicated to delivering innovation and quality in every project.`,
               ]}
               cursor
               cursorColor="white"
@@ -101,7 +79,7 @@ const Banner =  () => {
           <div className="py-7 md:py-10 w-full relative">
             <a
               href={
-                "https://drive.google.com/file/d/19jeOu6aglOiyjIJkZbXcAshLzXxIx8EA/view?usp=drive_link"
+                "https://drive.google.com/drive/u/0/folders/1loJdXiXArrnW0ToUtSh_KaC15yVJm3IN"
               }
               target="_blank"
               download
@@ -130,10 +108,17 @@ const Banner =  () => {
             <div className="find-border"></div>
           </div>
           {/* social media */}
-          <div className="flex items-center gap-5">
-           <FaFacebookF/>
-           <FaLinkedinIn/>
-           <FaGithub/>
+          <div className="flex items-center text-3xl gap-5">
+            <Link href={"https://web.facebook.com/maybe.rakib.507367"}> 
+            <FaFacebookF />
+            </Link>
+            <Link href={"https://www.linkedin.com/in/rakibul-hasan-b94123271/"}> 
+               <FaLinkedinIn />
+            </Link>
+            <Link href={"https://github.com/rakibul561"}> 
+            <FaGithub />
+            </Link>
+         
           </div>
         </div>
         {/* coding animation */}
@@ -162,4 +147,3 @@ const Banner =  () => {
 };
 
 export default Banner;
-
