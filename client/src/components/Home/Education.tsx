@@ -1,4 +1,7 @@
-import React from "react";
+
+"use client"
+import Aos from "aos";
+import React, { useEffect } from "react";
 
 const educationData = [
   {
@@ -60,8 +63,19 @@ const EducationCard: React.FC<EducationCardProps> = ({
 );
 
 const Education = () => {
+
+  
+  useEffect(() => {
+    Aos.init({
+      duration: 500,
+      offset: 200,
+    });
+  }, []);
+
+
+
   return (
-    <div>
+    <div  data-aos="zoom-out-down">
       <h1 className="text-center items-center text-3xl font-bold text-[#0592E0] mt-20"> Education</h1>
       <section
         className="mb-20 mt-20 rounded-2xl text-white py-16 px-4 sm:px-6 lg:px-8"

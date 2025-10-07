@@ -53,7 +53,7 @@ export default function AddBlog() {
         authorId: 1,
       };
 
-      const res = await fetch("http://localhost:5000/api/blog", {
+      const res = await fetch("https://protfolio-server-ivory.vercel.app/api/blog", {
         method: "POST",
         headers: {
           "Content-Type": "application/json",

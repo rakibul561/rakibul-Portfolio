@@ -3,12 +3,27 @@
 import Image from "next/image";
 import rakib from "../../assets/image/rakib.png";
 import { DialogDemo } from "./AboutModal";
+import Aos from "aos";
+import { useEffect } from "react";
 
 export default function HeroSection() {
+
+  
+    useEffect(() => {
+      Aos.init({
+        duration: 500,
+        offset: 200,
+      });
+    }, []);
+
+
   return (
-    <div>
-          <h1 className="text-center items-center text-3xl font-bold text-[#0592E0] mt-20 mb-20"> About <span className="text-white">Me</span></h1>
-      <section
+    <div >
+      <h1 className="text-center items-center text-3xl font-bold text-[#0592E0] mt-20 mb-20">
+        {" "}
+        About <span className="text-white">Me</span>
+      </h1>
+      <section id="about"
         className="py-10 lg:py-16"
         style={{
           background: `linear-gradient(
@@ -22,8 +37,8 @@ export default function HeroSection() {
         )`,
         }}
       >
-        <div className="container px-6 mx-auto">
-          <div className="flex flex-col lg:flex-row items-center justify-between gap-12 lg:gap-16">
+        <div  data-aos="zoom-in" className="container px-6 mx-auto ">
+          <div className="flex flex-col lg:flex-row items-center  justify-between gap-12 lg:gap-16">
             <div className="flex-1 flex items-center justify-center relative min-h-[400px]">
               <div className="relative z-10 group">
                 <div className="absolute -inset-1 bg-gradient-to-r from-blue-500 via-purple-500 to-pink-500 rounded-lg blur opacity-30 group-hover:opacity-60 transition duration-1000 group-hover:duration-200 animate-gradient"></div>
@@ -35,7 +50,7 @@ export default function HeroSection() {
                     width={350}
                     height={300}
                   />
-                  
+
                   <div className="absolute -top-4 -left-4 w-8 h-8 border-t-4 border-l-4 border-blue-400 animate-pulse"></div>
                   <div
                     className="absolute -bottom-4 -right-4 w-8 h-8 border-b-4 border-r-4 border-purple-400 animate-pulse"
@@ -60,7 +75,7 @@ export default function HeroSection() {
                 </h1>
 
                 <p className="mt-4 text-white leading-relaxed">
-                  Hello, I’m Rakibul, a skilled MERN stack web developer. With a
+                  Hello, I’m Rakibul, a skilled FULL stack web developer. With a
                   passion for creating seamless digital experiences, I
                   specialize in crafting efficient and user-friendly
                   applications. My expertise spans Node.js, Express.js,
@@ -72,9 +87,7 @@ export default function HeroSection() {
                 </p>
 
                 <div className="mt-8">
-                 
-                   <DialogDemo/>
-                 
+                  <DialogDemo />
                 </div>
               </div>
             </div>

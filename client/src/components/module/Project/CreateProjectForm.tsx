@@ -60,7 +60,7 @@ export default function AddProject() {
 
       console.log(modifyData)
 
-      const res = await fetch("http://localhost:5000/api/project", {
+      const res = await fetch("https://protfolio-server-ivory.vercel.app/api/project", {
         method: "POST",
         headers: { "Content-Type": "application/json" },
         body: JSON.stringify(modifyData),

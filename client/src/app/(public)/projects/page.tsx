@@ -9,7 +9,7 @@ export const metadata: Metadata = {
 
 const AllProjectPage = async () => {
   const res = await fetch(`${process.env.NEXT_BASE_API}/api/project`, {
-    cache: "no-store",
+    next:{revalidate:20}
   });
   const { data: project } = await res.json();
 

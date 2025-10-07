@@ -32,7 +32,7 @@ const BlogTable = ({ blogs }: { blogs: Blog[] }) => {
   // Delete blog
   const handleDelete = async (id: number) => {
     try {
-      const res = await fetch(`http://localhost:5000/api/blog/${id}`, {
+      const res = await fetch(`https://protfolio-server-ivory.vercel.app/api/blog/${id}`, {
         method: "DELETE",
         headers: { "Content-Type": "application/json" },
       });
@@ -63,7 +63,7 @@ const BlogTable = ({ blogs }: { blogs: Blog[] }) => {
 
     try {
       const res = await fetch(
-        `http://localhost:5000/api/blog/${editingBlog.id}`,
+        `https://protfolio-server-ivory.vercel.app/api/blog/${editingBlog.id}`,
         {
           method: "PATCH",
           headers: { "Content-Type": "application/json" },

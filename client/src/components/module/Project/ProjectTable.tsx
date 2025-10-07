@@ -27,7 +27,7 @@ const ProjectTable = ({ projects }: { projects: Project[] }) => {
 
   const handleDelete = async (id: number) => {
     try {
-      const res = await fetch(`http://localhost:5000/api/project/${id}`, {
+      const res = await fetch(`https://protfolio-server-ivory.vercel.app/api/project/${id}`, {
         method: "DELETE",
         headers: { "Content-Type": "application/json" },
       });

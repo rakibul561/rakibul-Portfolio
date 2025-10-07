@@ -82,7 +82,7 @@ const Contact = () => {
         `,
       }}
     >
-      {/* Personal Info Cards */}
+  
       <div
         data-aos="zoom-in"
         className="grid md:grid-cols-3 gap-10 mx-3 experience-style p-10 rounded-md shadow-md bg-opacity-60"

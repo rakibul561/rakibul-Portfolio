@@ -60,7 +60,7 @@ const ProjectCard = ({ post }: { post: Project[] }) => {
   };
 
   return (
-    <section className="max-w-7xl mx-auto py-10 md:py-20 overflow-hidden">
+    <section id="projects" className="max-w-7xl mx-auto py-10 md:py-20 overflow-hidden">
       {/* Section Title */}
       <h1
         data-aos="fade-down"
