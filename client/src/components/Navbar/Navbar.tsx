@@ -12,7 +12,7 @@ const Navbar = () => {
   const pathname = usePathname();
 
   const links = [
-    { path: "#home", label: "Home" },
+    { path: "/", label: "Home" },
     { path: "#about", label: "About" },
     { path: "#skills", label: "Skills" },
     { path: "#projects", label: "Projects" },

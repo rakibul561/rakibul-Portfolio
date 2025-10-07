@@ -25,7 +25,7 @@ const Banner = () => {
   };
 
   return (
-    <header className=" relative  px-5 md:px-0 ">
+    <header id="home" className=" relative  px-5 md:px-0 ">
       <div className="flex flex-col-reverse lg:flex-row h-[900px] pt-10 items-center gap-2 md:gap-10 max-w-7xl mx-auto">
         <div
           data-aos="fade-right"
@@ -78,7 +78,7 @@ const Banner = () => {
           <div className="py-7 md:py-10 w-full relative">
             <a
               href={
-                "https://drive.google.com/drive/u/0/folders/1loJdXiXArrnW0ToUtSh_KaC15yVJm3IN"
+                "https://drive.google.com/file/d/1ZLvh1s1SlpAYZvYuubnRvg9tjpmOfM96/view?usp=sharing"
               }
               target="_blank"
               download

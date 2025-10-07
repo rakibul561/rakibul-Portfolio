@@ -6,9 +6,9 @@ import React from "react";
 const BlogDetailsPage = async ({
   params,
 }: {
-  params: { blogId: string };
+  params: Promise<{ blogId: string }>;
 }) => {
-  const { blogId } = params;
+  const { blogId } = await params;
   const blog = await getBlogById(blogId);
   
  

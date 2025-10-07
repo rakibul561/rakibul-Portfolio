@@ -30,26 +30,29 @@ export default function LoginForm() {
     },
   });
 
-  const onSubmit = async (values: FieldValues) => {
-    try {
-      // const res = await login(values)
-      // console.log(res)
 
-      // if(res?.success){
-      //   toast.success("user login succesfull ✅ ")
-      // }
 
-      signIn("credentials", {
-        ...values,
-        callbackUrl: "/dashboard",
-      })
-      toast.success("Login successful")
+const onSubmit = async (values: FieldValues) => {
+   
+  try {
+    const res = await signIn("credentials", {
+      ...values,
+      redirect: false, 
+    });
+  
+    if (res?.error) {
+      toast.error("Invalid email or password ❌");
       
-      
-    } catch (error) {
-      console.log(error)
+    } else {
+      toast.success("Login successful ✅");
+     
+      window.location.href = "/dashboard";
     }
-  };
+  } catch (error) {
+    console.error(error);
+    toast.error("Something went wrong ❌");
+  }
+};
 
 
 
@@ -74,6 +77,7 @@ export default function LoginForm() {
                     <Input
                       type="email"
                       placeholder="Enter your email"
+                      required
                       {...field}
                     />
                   </FormControl>
@@ -93,6 +97,7 @@ export default function LoginForm() {
                     <Input
                       type="password"
                       placeholder="Enter your password"
+                      required
                       {...field}
                     />
                   </FormControl>
