@@ -1,5 +1,5 @@
 import BlogDetailsCard from "@/components/module/Blogs/BlogDetails";
-import { getBlogById } from "@/service";
+import { fakeBlogs } from "@/data/fakeBlogs";
 import React from "react";
 
 
@@ -9,9 +9,8 @@ const BlogDetailsPage = async ({
   params: Promise<{ blogId: string }>;
 }) => {
   const { blogId } = await params;
-  const blog = await getBlogById(blogId);
-  
- 
+  const blogResponse = fakeBlogs.find((b) => b.id.toString() === blogId);
+  const blog = blogResponse;
 
   return (
     <div className="py-30 px-4 max-w-7xl mx-auto">

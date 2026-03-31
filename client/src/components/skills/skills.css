@@ -50,6 +50,7 @@
 .tab-active::after {
   transform: scale(0);
 }
+
 .tab-active {
   box-shadow: inset 0px 0px 25px #1479ea;
 }

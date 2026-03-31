@@ -1,100 +1,117 @@
 /* eslint-disable @typescript-eslint/no-explicit-any */
+"use client";
+
 import Image from "next/image";
+import { User, Calendar, Tag, ArrowLeft, Clock } from "lucide-react";
+import Link from "next/link";
+import React from "react";
 
 export default function BlogDetailsCard({ blog }: { blog: any }) {
-    console.log(blog)
-  if (!blog) {
+  if (!blog?.data && !blog) {
     return (
-      <div className="py-20 text-center text-gray-500">Blog not found.</div>
+      <div className="min-h-[60vh] flex items-center justify-center">
+        <div className="text-center space-y-4">
+          <h2 className="text-4xl font-bold text-slate-300 not-italic">Blog not found</h2>
+          <Link href="/blogs" className="text-[#03e9f4] hover:underline not-italic">Return to all blogs</Link>
+        </div>
+      </div>
     );
   }
 
-  const formattedDate = new Date(blog.createdAt).toLocaleDateString("en-US", {
+  // Handle case where we manually pass the unwrapped object or {data: ...} wrapped object
+  const post = blog.data || blog;
+
+  // Format Dates safely
+  const formattedDate = post?.createdAt ? new Date(post.createdAt).toLocaleDateString("en-US", {
     year: "numeric",
     month: "long",
     day: "numeric",
-  });
+  }) : "Unknown Date";
+
+  const updatedDate = post?.updatedAt 
+    ? new Date(post.updatedAt).toLocaleDateString("en-US", { month: "short", day: "numeric", year: "numeric" }) 
+    : formattedDate;
 
   return (
-    <main className="max-w-4xl mx-auto py-12 px-4">
-      {/* Title */}
-      <h1 className="text-4xl md:text-5xl font-bold mb-4 ">
-        {blog.title}
-      </h1>
+    <main className="max-w-4xl mx-auto py-16 px-6 font-sans not-italic text-slate-200">
+      
+      {/* Back Button */}
+      <Link href="/blogs" className="inline-flex items-center gap-2 text-slate-400 hover:text-[#03e9f4] transition-colors mb-12 not-italic group">
+        <ArrowLeft size={18} className="group-hover:-translate-x-1 transition-transform" />
+        <span className="font-medium tracking-wide">Back to blogs</span>
+      </Link>
 
-      {/* Author & Date */}
-      <div className="flex items-center gap-4 mb-8">
-        <div className="flex items-center gap-2 ">
-          <svg
-            xmlns="http://www.w3.org/2000/svg"
-            className="h-5 w-5"
-            fill="none"
-            viewBox="0 0 24 24"
-            stroke="currentColor"
-          >
-            <path
-              strokeLinecap="round"
-              strokeLinejoin="round"
-              strokeWidth={2}
-              d="M16 7a4 4 0 11-8 0 4 4 0 018 0zM12 14a7 7 0 00-7 7h14a7 7 0 00-7-7z"
+      <article>
+        {/* Header Section */}
+        <header className="mb-12 space-y-8">
+          <div className="flex items-center gap-3 text-[#03e9f4] font-medium tracking-wider uppercase text-sm not-italic">
+            <Tag size={16} />
+            <span>Development • Resources</span>
+          </div>
+
+          <h1 className="text-4xl sm:text-5xl lg:text-6xl font-extrabold leading-[1.1] text-white tracking-tight not-italic drop-shadow-sm">
+            {post.title}
+          </h1>
+
+          {/* Meta Info */}
+          <div className="flex flex-wrap items-center gap-6 pt-4 border-t border-slate-800/80">
+            <div className="flex items-center gap-3 not-italic">
+              <div className="w-10 h-10 rounded-full bg-slate-800 flex items-center justify-center border border-slate-700">
+                <User size={18} className="text-[#03e9f4]" />
+              </div>
+              <div>
+                <p className="text-xs text-slate-500 uppercase tracking-wider font-semibold">Author</p>
+                <p className="font-medium text-slate-300">{post.author?.name || "Rakibul Hasan"}</p>
+              </div>
+            </div>
+
+            <div className="flex items-center gap-3 not-italic">
+              <div className="w-10 h-10 rounded-full bg-slate-800 flex items-center justify-center border border-slate-700">
+                <Calendar size={18} className="text-[#03e9f4]" />
+              </div>
+              <div>
+                <p className="text-xs text-slate-500 uppercase tracking-wider font-semibold">Published</p>
+                <p className="font-medium text-slate-300">{formattedDate}</p>
+              </div>
+            </div>
+          </div>
+        </header>
+
+        {/* High Quality Thumbnail Banner */}
+        {post.thumbnail && (
+          <div className="relative w-full aspect-[21/9] md:aspect-[2/1] mb-16 rounded-2xl overflow-hidden shadow-[0_20px_50px_rgba(0,0,0,0.5)] border border-slate-800">
+            <div className="absolute inset-0 bg-gradient-to-t from-[#010610]/80 via-transparent to-transparent z-10"></div>
+            <Image
+              src={post.thumbnail}
+              alt={post.title}
+              fill
+              className="object-cover transform hover:scale-105 transition-transform duration-700"
+              priority
             />
-          </svg>
-          <span className="text-sm font-medium">Rakibul Hasan</span>
-        </div>
-        <span className="">•</span>
-        <div className="flex items-center gap-2 ">
-          <svg
-            xmlns="http://www.w3.org/2000/svg"
-            className="h-5 w-5"
-            fill="none"
-            viewBox="0 0 24 24"
-            stroke="currentColor"
-          >
-            <path
-              strokeLinecap="round"
-              strokeLinejoin="round"
-              strokeWidth={2}
-              d="M8 7V3m8 4V3m-9 8h10M5 21h14a2 2 0 002-2V7a2 2 0 00-2-2H5a2 2 0 00-2 2v12a2 2 0 002 2z"
-            />
-          </svg>
-          <span className="text-sm">{formattedDate}</span>
-        </div>
-      </div>
+          </div>
+        )}
 
-      {/* Thumbnail */}
-      {blog.thumbnail && (
-        <div className="relative w-full h-[400px] md:h-[500px] mb-8 rounded-xl overflow-hidden shadow-lg">
-          <Image
-            src={blog.thumbnail || "image not found"}
-            alt={blog.title}
-            fill
-            className="object-cover"
-            priority
-          />
+        {/* Article Body Content */}
+        <div className="prose prose-invert prose-lg max-w-none not-italic">
+          <div className="text-slate-300 text-lg md:text-xl leading-relaxed whitespace-pre-wrap font-light tracking-wide">
+            {post.content}
+          </div>
         </div>
-      )}
 
-      {/* Content */}
-      <article className="prose prose-lg max-w-none">
-        <div className=" leading-relaxed text-lg whitespace-pre-wrap">
-          {blog.content}
-        </div>
+        {/* Footer Meta */}
+        <footer className="mt-20 pt-8 border-t border-slate-800/80">
+          <div className="flex flex-col sm:flex-row items-center justify-between gap-4 text-sm text-slate-500 not-italic font-medium">
+            <div className="flex items-center gap-2">
+              <span className="px-3 py-1 rounded-md bg-slate-900 border border-slate-800">ID: {post.id}</span>
+            </div>
+            <div className="flex items-center gap-2">
+              <Clock size={14} className="opacity-70" />
+              <span>Last updated: {updatedDate}</span>
+            </div>
+          </div>
+        </footer>
       </article>
 
-      {/* Footer Info */}
-      <div className="mt-12 pt-6 border-t border-gray-200">
-        <div className="flex items-center justify-between text-sm ">
-          <span>Article ID: {blog.id}</span>
-          <span>
-            Last updated:{" "}
-            {new Date(blog.updatedAt).toLocaleDateString("en-US", {
-              year: "numeric",
-              month: "short",
-              day: "numeric",
-            })}
-          </span>
-        </div>
-      </div>
     </main>
   );
 }

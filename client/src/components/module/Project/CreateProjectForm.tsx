@@ -1,26 +1,26 @@
 "use client";
-import { useForm } from "react-hook-form";
 import { Button } from "@/components/ui/button";
-import { Input } from "@/components/ui/input";
+import {
+  Card,
+  CardContent,
+  CardDescription,
+  CardFooter,
+  CardHeader,
+  CardTitle,
+} from "@/components/ui/card";
 import {
   Form,
+  FormControl,
   FormField,
   FormItem,
   FormLabel,
-  FormControl,
   FormMessage,
 } from "@/components/ui/form";
-import {
-  Card,
-  CardHeader,
-  CardTitle,
-  CardDescription,
-  CardContent,
-  CardFooter,
-} from "@/components/ui/card";
+import { Input } from "@/components/ui/input";
 import { Textarea } from "@/components/ui/textarea";
-import toast from "react-hot-toast";
 import { useRouter } from "next/navigation";
+import { useForm } from "react-hook-form";
+import toast from "react-hot-toast";
 
 type ProjectFormData = {
   title: string;
@@ -49,7 +49,6 @@ export default function AddProject() {
 
   const onSubmit = async (data: ProjectFormData) => {
     try {
-    
       const modifyData = {
         ...data,
         githubUrl: data.githubUrl.split(",").map((url) => url.trim()),
@@ -58,9 +57,9 @@ export default function AddProject() {
         ownerId: 1,
       };
 
-      console.log(modifyData)
+      console.log(modifyData);
 
-      const res = await fetch("https://protfolio-server-ivory.vercel.app/api/project", {
+      const res = await fetch(`${process.env.NEXT_BASE_API}/api/project`, {
         method: "POST",
         headers: { "Content-Type": "application/json" },
         body: JSON.stringify(modifyData),
@@ -69,7 +68,7 @@ export default function AddProject() {
       await res.json();
       toast.success("Project created Successfully");
       form.reset();
-      router.push("/projects"); 
+      router.push("/projects");
     } catch (error) {
       console.log(error);
       toast.error("Something went wrong!");
@@ -86,8 +85,11 @@ export default function AddProject() {
 
         <CardContent>
           <Form {...form}>
-            <form onSubmit={form.handleSubmit(onSubmit)} className="space-y-5" id="project-form">
-              
+            <form
+              onSubmit={form.handleSubmit(onSubmit)}
+              className="space-y-5"
+              id="project-form"
+            >
               {/* Title and Description row */}
               <div className="grid grid-cols-1 md:grid-cols-2 gap-5">
                 <FormField
@@ -111,7 +113,11 @@ export default function AddProject() {
                     <FormItem>
                       <FormLabel>Description</FormLabel>
                       <FormControl>
-                        <Textarea placeholder="Enter project description" {...field} className="resize-none" />
+                        <Textarea
+                          placeholder="Enter project description"
+                          {...field}
+                          className="resize-none"
+                        />
                       </FormControl>
                       <FormMessage />
                     </FormItem>
@@ -142,7 +148,10 @@ export default function AddProject() {
                     <FormItem>
                       <FormLabel>Live Project URL</FormLabel>
                       <FormControl>
-                        <Input placeholder="Enter live project URL" {...field} />
+                        <Input
+                          placeholder="Enter live project URL"
+                          {...field}
+                        />
                       </FormControl>
                       <FormMessage />
                     </FormItem>
@@ -158,7 +167,10 @@ export default function AddProject() {
                   <FormItem>
                     <FormLabel>GitHub Repositories</FormLabel>
                     <FormControl>
-                      <Input placeholder="Enter GitHub URLs, comma separated" {...field} />
+                      <Input
+                        placeholder="Enter GitHub URLs, comma separated"
+                        {...field}
+                      />
                     </FormControl>
                     <FormMessage />
                   </FormItem>
@@ -173,7 +185,10 @@ export default function AddProject() {
                   <FormItem>
                     <FormLabel>Features</FormLabel>
                     <FormControl>
-                      <Input placeholder="Enter features, comma separated" {...field} />
+                      <Input
+                        placeholder="Enter features, comma separated"
+                        {...field}
+                      />
                     </FormControl>
                     <FormMessage />
                   </FormItem>
@@ -188,13 +203,15 @@ export default function AddProject() {
                   <FormItem>
                     <FormLabel>Technology Used</FormLabel>
                     <FormControl>
-                      <Input placeholder="Enter technologies, comma separated" {...field} />
+                      <Input
+                        placeholder="Enter technologies, comma separated"
+                        {...field}
+                      />
                     </FormControl>
                     <FormMessage />
                   </FormItem>
                 )}
               />
-
             </form>
           </Form>
         </CardContent>

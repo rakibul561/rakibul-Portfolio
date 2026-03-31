@@ -1,5 +1,6 @@
 import ProjectCard from "@/components/module/Project/ProjectCard";
 import { Metadata } from "next";
+import { fakeProjects as project } from "@/data/fakeProjects";
 
 export const metadata: Metadata = {
   title: "Project | Next Project",
@@ -8,10 +9,6 @@ export const metadata: Metadata = {
 };
 
 const AllProject = async () => {
-  const res = await fetch(`${process.env.NEXT_BASE_API}/api/project`, {
-    cache: "no-store",
-  });
-  const { data: project } = await res.json();
 
   return (
     <div className="py-30 px-4 max-w-7xl mx-auto">

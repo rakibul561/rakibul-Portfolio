@@ -1,6 +1,7 @@
 /* eslint-disable @typescript-eslint/no-explicit-any */
 import BlogCard from "@/components/module/Blogs/BlogCard";
 import { Metadata } from "next";
+import { fakeBlogs as blogs } from "@/data/fakeBlogs";
 
 export const metadata: Metadata = {
   title: "All Blogs | Next Blog",
@@ -9,12 +10,6 @@ export const metadata: Metadata = {
 };
 
 const AllBlogsPage = async () => {
-  const res = await fetch(`${process.env.NEXT_BASE_API}/api/blog`, {
-    next: {
-      revalidate: 30,
-    },
-  });
-  const { data: blogs } = await res.json();
   
   return (
     <div className="py-30 px-4 max-w-7xl mx-auto">
