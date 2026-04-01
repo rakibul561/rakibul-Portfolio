@@ -40,3 +40,114 @@ body::before {
 html {
   scroll-behavior: smooth;
 }
+
+::view-transition-old(root),
+::view-transition-new(root) {
+  animation: none;
+  mix-blend-mode: normal;
+}
+::view-transition-old(root) {
+  z-index: 1;
+}
+::view-transition-new(root) {
+  z-index: 9999;
+}
+.dark::view-transition-old(root) {
+  z-index: 9999;
+}
+.dark::view-transition-new(root) {
+  z-index: 1;
+}
+
+/* -------------------------------------------
+   Comprehensive Light Mode Overrides
+------------------------------------------- */
+.light {
+  --background: #f8f9fa;
+  --foreground: #1e293b;
+}
+
+.light body {
+  background: var(--background) !important;
+  color: var(--foreground) !important;
+}
+
+/* Convert all dark backgrounds to sleek light surfaces */
+.light :is(
+  [class*="bg-[#0f172a]"], 
+  [class*="bg-[#0c1322]"], 
+  [class*="bg-[#111827]"], 
+  [class*="bg-slate-800"], 
+  [class*="bg-slate-900"], 
+  [class*="bg-black"], 
+  [class*="bg-[#17202A]"],
+  [class*="bg-[#051121]"]
+) {
+  background-color: #ffffff !important;
+  border-color: #e2e8f0 !important;
+  box-shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.05) !important;
+}
+
+/* Handle translucent dark backgrounds specifically */
+.light :is([class*="bg-[#0f172a]/40"], [class*="bg-[#0f172a]/60"], [class*="bg-[#0f172a]/80"], [class*="bg-slate-900/80"]) {
+  background-color: rgba(255, 255, 255, 0.85) !important;
+  border-color: #e2e8f0 !important;
+}
+
+/* Text Colors */
+.light :is(
+  [class*="text-white"], 
+  [class*="text-slate-200"], 
+  [class*="text-slate-300"], 
+  [class*="text-slate-400"], 
+  [class*="text-gray-400"]
+) {
+  color: #334155 !important;
+}
+
+/* Primary Cyan adjust for readable contrast in light mode */
+.light [class*="text-[#03e9f4]"] {
+  color: #0284c7 !important; /* sky-600 */
+}
+
+/* Borders */
+.light :is(
+  [class*="border-slate-800"], 
+  [class*="border-slate-700"], 
+  [class*="border-slate-600"], 
+  [class*="border-slate-500"]
+) {
+  border-color: #cbd5e1 !important;
+}
+
+/* Inputs and Forms */
+.light input, 
+.light textarea {
+  color: #0f172a !important;
+  border-bottom-color: #94a3b8 !important;
+}
+.light input::placeholder, 
+.light textarea::placeholder {
+  color: #94a3b8 !important;
+}
+.light label {
+  color: #64748b !important;
+}
+
+/* Tweak Particles Background */
+.light #tsparticles {
+  opacity: 0.1 !important;
+}
+.light canvas {
+  opacity: 0.2 !important;
+}
+
+/* Fix Cyan specific background hovers and buttons */
+.light [class*="bg-[#03e9f4]/10"] {
+  background-color: #e0f2fe !important; /* sky-100 */
+  border-color: #bae6fd !important;
+}
+.light :is([class*="hover:bg-[#03e9f4]"]:hover) {
+  background-color: #0284c7 !important;
+  color: #ffffff !important;
+}

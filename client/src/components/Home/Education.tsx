@@ -1,9 +1,9 @@
 "use client";
 import Aos from "aos";
+import { motion } from "framer-motion";
 import React, { useEffect } from "react";
 import { FaUserGraduate } from "react-icons/fa";
-import { motion } from "framer-motion";
-import bannerImage from '../../assets/image/HappyDog.gif';
+import bannerImage from "../../assets/image/HappyDog.gif";
 
 const educationData = [
   {
@@ -15,7 +15,7 @@ const educationData = [
   {
     institution: "Mir KandaPara High School (Mymensingh)",
     degree: "Secondary School Certificate (Science)",
-    year: "2021-2022"
+    year: "2021-2022",
   },
 ];
 
@@ -23,7 +23,7 @@ type EducationCardProps = {
   institution: string;
   degree: string;
   year: string;
-  resultValue: string;
+  resultValue?: string;
 };
 
 const EducationCard: React.FC<EducationCardProps> = ({
@@ -44,9 +44,7 @@ const EducationCard: React.FC<EducationCardProps> = ({
       <h3 className="text-lg sm:text-xl font-bold text-white uppercase mb-1">
         {degree}
       </h3>
-      <p className="text-gray-400 text-sm sm:text-base">
-        {institution}
-      </p>
+      <p className="text-gray-400 text-sm sm:text-base">{institution}</p>
     </div>
   </div>
 );
@@ -88,7 +86,11 @@ const Education = () => {
                   src={bannerImage.src}
                   alt="Education Banner Image"
                   animate={{ y: [0, -15, 0] }}
-                  transition={{ duration: 3, ease: "easeInOut", repeat: Infinity }}
+                  transition={{
+                    duration: 3,
+                    ease: "easeInOut",
+                    repeat: Infinity,
+                  }}
                   className="w-56 h-auto drop-shadow-[0_0_15px_rgba(5,146,224,0.4)] object-contain"
                 />
               </div>

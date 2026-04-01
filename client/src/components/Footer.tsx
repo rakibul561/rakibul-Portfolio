@@ -19,9 +19,9 @@ const Footer = () => {
 
         {/* Center Links */}
         <div className="flex items-center justify-center gap-6 md:gap-10 text-[13px] font-semibold tracking-[0.15em] text-slate-500 w-full md:w-1/3">
-          <Link href="#about" className="hover:text-gray-900 transition">EXPERIENCE</Link>
-          <Link href="/blogs" className="hover:text-gray-900 transition">BLOGS</Link>
-          <a href="https://drive.google.com/file/d/1ZLvh1s1SlpAYZvYuubnRvg9tjpmOfM96/view?usp=sharing" target="_blank" rel="noreferrer" className="hover:text-gray-900 transition">RESUME</a>
+          <Link href="#about" className="hover:text-gray-400 transition">EXPERIENCE</Link>
+          <Link href="/blogs" className="hover:text-gray-400 transition">BLOGS</Link>
+          <a href="https://drive.google.com/file/d/1ZLvh1s1SlpAYZvYuubnRvg9tjpmOfM96/view?usp=sharing" target="_blank" rel="noreferrer" className="hover:text-gray-400 transition">RESUME</a>
         </div>
 
         {/* Right Icons */}
