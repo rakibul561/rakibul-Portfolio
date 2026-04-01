@@ -108,16 +108,16 @@ const Banner = () => {
           </div>
           {/* social media */}
           <div className="flex items-center text-3xl gap-5">
-            <Link href={"https://web.facebook.com/maybe.rakib.507367"}> 
-            <FaFacebookF />
+            <Link href={"https://web.facebook.com/maybe.rakib.507367"}>
+              <FaFacebookF />
             </Link>
-            <Link href={"https://www.linkedin.com/in/rakibul-hasan-b94123271/"}> 
-               <FaLinkedinIn />
+            <Link href={"https://www.linkedin.com/in/rakibul-hasan-b94123271/"}>
+              <FaLinkedinIn />
             </Link>
-            <Link href={"https://github.com/rakibul561"}> 
-            <FaGithub />
+            <Link href={"https://github.com/rakibul561"}>
+              <FaGithub />
             </Link>
-         
+
           </div>
         </div>
         {/* coding animation */}

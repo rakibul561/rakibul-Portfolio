@@ -1,14 +1,12 @@
 "use client";
 /* eslint-disable @typescript-eslint/no-explicit-any */
 import { useState, useEffect } from "react";
-import phonePng from "../../assets/icons/phone.png";
-import homePng from "../../assets/icons/home.png";
-import EmailPng from "../../assets/icons/email.png";
 import { useForm } from "react-hook-form";
 import toast from "react-hot-toast";
 import Aos from "aos";
 import "aos/dist/aos.css";
-import Image from "next/image";
+import { FaWhatsapp, FaMapMarkerAlt, FaEnvelope } from "react-icons/fa";
+import { Send } from "lucide-react";
 
 const personalInfo = [
   {
@@ -16,21 +14,21 @@ const personalInfo = [
     type: "phone",
     label: "WhatsApp",
     value: "+880 1943399738",
-    icon: phonePng,
+    icon: <FaWhatsapp size={24} className="text-[#03e9f4]" />,
   },
   {
     id: 2,
     type: "home",
-    label: "Home",
+    label: "Location",
     value: "Mymensingh, Bangladesh",
-    icon: homePng,
+    icon: <FaMapMarkerAlt size={24} className="text-[#03e9f4]" />,
   },
   {
     id: 3,
     type: "email",
     label: "Email",
     value: "rakibulhasan3929@gmail.com",
-    icon: EmailPng,
+    icon: <FaEnvelope size={24} className="text-[#03e9f4]" />,
   },
 ];
 
@@ -40,8 +38,9 @@ const Contact = () => {
 
   useEffect(() => {
     Aos.init({
-      duration: 500,
-      offset: 200,
+      duration: 800,
+      offset: 100,
+      easing: "ease-out-cubic",
     });
   }, []);
 
@@ -64,158 +63,145 @@ const Contact = () => {
   };
 
   return (
-    <div>
-      <h1 className="text-center items-center text-3xl font-bold text-[#0592E0] mb-20"> Contact <span className="text-white">Me</span></h1>
-      <div
-        className="max-w-7xl mx-auto rounded-lg mb-20  shadow-lg p-10"
-        style={{
-          background: `
-          linear-gradient(
-            to bottom left,
-            #05163b,
-            #092152,
-            #010610,
-            #010610,
-            #092152,
-            #010610
-          )
-        `,
-        }}
-      >
-
-        <div
-          data-aos="zoom-in"
-          className="grid md:grid-cols-3 gap-10 mx-3 experience-style p-10 rounded-md shadow-md bg-opacity-60"
-        >
-          {personalInfo.map((info) => (
-            <div key={info.id} className="text-center space-y-1">
-              <div className="w-10 mx-auto">
-                <Image
-                  data-aos="zoom-in"
-                  data-aos-duration="2000"
-                  src={info.icon}
-                  alt={info.label}
-                  className="mx-auto"
-                  width={40}
-                  height={40}
-                />
-              </div>
-              <h2
-                data-aos="fade-up"
-                data-aos-duration="2000"
-                className="text-xl font-medium text-[#03e9f4] font-Georgian"
-              >
-                {info.label}
-              </h2>
-              <p
-                data-aos="fade-down"
-                data-aos-duration="2000"
-                className="text-gray-400 font-medium font-Georgian"
-              >
-                <small>{info.value}</small>
-              </p>
-            </div>
-          ))}
+    <section id="contact" className="py-20 md:py-32 relative font-sans z-10 w-full overflow-hidden">
+      <div className="max-w-7xl mx-auto px-6">
+        
+        {/* Header Title */}
+        <div className="text-center mb-16 md:mb-24" data-aos="fade-up">
+          <h1 className="text-4xl md:text-5xl lg:text-5xl font-extrabold text-white tracking-tight">
+            Let's <span className="text-[#03e9f4] drop-shadow-[0_0_10px_rgba(3,233,244,0.3)]">Connect</span>
+          </h1>
+          <p className="text-slate-400 mt-4 md:mt-6 max-w-2xl mx-auto text-lg">
+            Have a project in mind or just want to chat? Feel free to drop a message.
+          </p>
         </div>
 
-        {/* Contact Form */}
-        <div data-aos="fade-up" data-aos-duration="2000" className="mt-10 rounded-3xl ">
-          <form onSubmit={handleSubmit(onSubmit)}>
-            <h2 className="text-xl text-center md:text-start font-medium mb-5 text-slate-400 font-Georgian">
-              Have any <span className="text-[#03e9f4]">Question</span>?
-            </h2>
-
-            <div className="flex flex-col md:flex-row items-center gap-10">
-              <div className="flex-1 space-y-6">
-                <input
-                  className="bg-transparent border-2 border-slate-500 focus:border-[#03e9f4] outline-none px-5 w-[350px] md:w-full py-2 rounded placeholder:text-slate-400 text-slate-400 focus:bg-slate-800"
-                  type="text"
-                  placeholder="Your Name"
-                  {...register("name")}
-                  required
-                />
-                <input
-                  className="bg-transparent border-2 border-slate-500 focus:border-[#03e9f4] outline-none px-5 py-2 rounded w-[350px] md:w-full placeholder:text-slate-400 text-slate-400 focus:bg-slate-800"
-                  type="email"
-                  placeholder="Your Email"
-                  {...register("email")}
-                  required
-                />
-                <input
-                  className="bg-transparent border-2 border-slate-500 focus:border-[#03e9f4] outline-none px-5 py-2 rounded w-[350px] md:w-full placeholder:text-slate-400 text-slate-400 focus:bg-slate-800"
-                  type="text"
-                  placeholder="Your Phone Number"
-                  {...register("number")}
-                  required
-                />
+        <div className="grid grid-cols-1 lg:grid-cols-12 gap-10 lg:gap-8 items-start">
+          
+          {/* Left Side: Contact Information Cards */}
+          <div className="lg:col-span-5 space-y-5" data-aos="fade-right">
+            {personalInfo.map((info) => (
+              <div 
+                key={info.id} 
+                className="group p-6 md:p-7 rounded-2xl bg-[#0f172a]/60 border border-slate-800 hover:border-[#03e9f4]/40 transition-all duration-300 flex items-center gap-6 shadow-lg"
+              >
+                <div className="p-4 bg-slate-900/80 rounded-xl border border-slate-700/50 group-hover:scale-110 group-hover:shadow-[0_0_15px_rgba(3,233,244,0.3)] transition-all">
+                  {info.icon}
+                </div>
+                <div>
+                  <h3 className="text-xs md:text-sm text-slate-500 font-bold tracking-widest uppercase mb-1">{info.label}</h3>
+                  <p className="text-white font-medium text-base md:text-lg">{info.value}</p>
+                </div>
               </div>
+            ))}
+          </div>
 
-              <div className="flex-1">
-                <textarea
-                  className="bg-transparent border-2 border-slate-500 focus:border-[#03e9f4] outline-none px-5 py-2 rounded w-[350px] md:w-full placeholder:text-slate-400 text-slate-400 focus:bg-slate-800"
-                  {...register("message")}
-                  placeholder="Your Message..."
-                  required
-                  rows={7}
-                ></textarea>
-              </div>
-            </div>
+          {/* Right Side: Sleek Contact Form */}
+          <div className="lg:col-span-7" data-aos="fade-left" data-aos-delay="100">
+            <div className="p-8 md:p-12 rounded-3xl bg-[#0f172a]/40 border border-slate-800 backdrop-blur-md shadow-2xl">
+              <h2 className="text-2xl md:text-3xl font-semibold text-white mb-8 md:mb-10">
+                Send a <span className="text-[#03e9f4]">Message</span>
+              </h2>
 
-            <div className="flex justify-center mt-5">
-              {loading ? (
-                <button className="btn btn-disabled text-xl">
-                  Loading{" "}
-                  <span className="loading loading-spinner text-white"></span>
-                </button>
-              ) : (
-                <button
-                  type="submit"
-                  className="relative inline-flex bg-transparent items-center justify-start py-2 pl-4 pr-12 overflow-hidden font-semibold text-slate-400 transition-all duration-150 ease-in-out rounded hover:pl-10 hover:pr-6 border border-slate-400 group"
-                >
-                  <span className="absolute right-0 pr-4 duration-200 ease-out group-hover:translate-x-12">
-                    <svg
-                      className="w-5 h-5 text-[#03e9f4]"
-                      fill="none"
-                      stroke="currentColor"
-                      viewBox="0 0 24 24"
-                      xmlns="http://www.w3.org/2000/svg"
+              <form onSubmit={handleSubmit(onSubmit)} className="space-y-8">
+                
+                {/* Floating Label Row 1 */}
+                <div className="grid grid-cols-1 md:grid-cols-2 gap-8 md:gap-10">
+                  <div className="relative">
+                    <input
+                      type="text"
+                      className="w-full bg-transparent border-b border-slate-600 py-2.5 text-white placeholder-transparent focus:border-[#03e9f4] focus:outline-none transition-colors peer text-lg"
+                      placeholder="Your Name"
+                      id="name"
+                      {...register("name")}
+                      required
+                    />
+                    <label 
+                      htmlFor="name" 
+                      className="absolute left-0 -top-4 text-slate-400 text-sm md:text-sm transition-all peer-placeholder-shown:text-base peer-placeholder-shown:text-slate-500 peer-placeholder-shown:top-2 peer-focus:-top-4 peer-focus:text-sm peer-focus:text-[#03e9f4] cursor-text"
                     >
-                      <path
-                        strokeLinecap="round"
-                        strokeLinejoin="round"
-                        strokeWidth="2"
-                        d="M14 5l7 7m0 0l-7 7m7-7H3"
-                      ></path>
-                    </svg>
-                  </span>
-
-                  <span className="absolute left-0 pl-2.5 -translate-x-12 group-hover:translate-x-0 ease-out duration-200">
-                    <svg
-                      className="w-5 h-5 text-slate-400"
-                      fill="none"
-                      stroke="currentColor"
-                      viewBox="0 0 24 24"
-                      xmlns="http://www.w3.org/2000/svg"
+                      Your Name
+                    </label>
+                  </div>
+                  
+                  <div className="relative">
+                    <input
+                      type="email"
+                      className="w-full bg-transparent border-b border-slate-600 py-2.5 text-white placeholder-transparent focus:border-[#03e9f4] focus:outline-none transition-colors peer text-lg"
+                      placeholder="Your Email"
+                      id="email"
+                      {...register("email")}
+                      required
+                    />
+                    <label 
+                      htmlFor="email" 
+                      className="absolute left-0 -top-4 text-slate-400 text-sm md:text-sm transition-all peer-placeholder-shown:text-base peer-placeholder-shown:text-slate-500 peer-placeholder-shown:top-2 peer-focus:-top-4 peer-focus:text-sm peer-focus:text-[#03e9f4] cursor-text"
                     >
-                      <path
-                        strokeLinecap="round"
-                        strokeLinejoin="round"
-                        strokeWidth="2"
-                        d="M14 5l7 7m0 0l-7 7m7-7H3"
-                      ></path>
-                    </svg>
-                  </span>
+                      Your Email
+                    </label>
+                  </div>
+                </div>
 
-                  <span className="relative w-full text-left transition-colors duration-200 ease-in-out group-hover:text-[#03e9f4]">
-                    SEND MESSAGE
-                  </span>
-                </button>
-              )}
+                {/* Floating Label Row 2 */}
+                <div className="relative">
+                  <input
+                    type="text"
+                    className="w-full bg-transparent border-b border-slate-600 py-2.5 text-white placeholder-transparent focus:border-[#03e9f4] focus:outline-none transition-colors peer text-lg"
+                    placeholder="Phone Number"
+                    id="number"
+                    {...register("number")}
+                    required
+                  />
+                  <label 
+                    htmlFor="number" 
+                    className="absolute left-0 -top-4 text-slate-400 text-sm md:text-sm transition-all peer-placeholder-shown:text-base peer-placeholder-shown:text-slate-500 peer-placeholder-shown:top-2 peer-focus:-top-4 peer-focus:text-sm peer-focus:text-[#03e9f4] cursor-text"
+                  >
+                    Phone Number
+                  </label>
+                </div>
+
+                {/* Floating Label Textarea */}
+                <div className="relative pt-2">
+                  <textarea
+                    className="w-full bg-transparent border-b border-slate-600 py-2.5 text-white placeholder-transparent focus:border-[#03e9f4] focus:outline-none transition-colors peer resize-none text-lg"
+                    placeholder="Your Message..."
+                    id="message"
+                    rows={4}
+                    {...register("message")}
+                    required
+                  ></textarea>
+                  <label 
+                    htmlFor="message" 
+                    className="absolute left-0 top-0 text-slate-400 text-sm md:text-sm transition-all peer-placeholder-shown:text-base peer-placeholder-shown:text-slate-500 peer-placeholder-shown:top-4 peer-focus:-top-4 peer-focus:text-sm peer-focus:text-[#03e9f4] cursor-text"
+                  >
+                    Your Message...
+                  </label>
+                </div>
+
+                <div className="pt-6">
+                  <button
+                    type="submit"
+                    disabled={loading}
+                    className="group relative inline-flex items-center justify-center gap-3 px-8 py-3.5 bg-[#03e9f4]/10 text-[#03e9f4] font-bold tracking-widest text-sm rounded-lg border border-[#03e9f4]/30 hover:bg-[#03e9f4] hover:text-[#0a0a0a] transition-all duration-300 shadow-[0_0_15px_rgba(3,233,244,0.1)] hover:shadow-[0_0_20px_rgba(3,233,244,0.4)] overflow-hidden w-full md:w-auto disabled:opacity-50 uppercase"
+                  >
+                    {loading ? (
+                      <span className="loading loading-spinner loading-md"></span>
+                    ) : (
+                      <>
+                        <span>SEND MESSAGE</span>
+                        <Send size={18} className="group-hover:translate-x-1 flex-shrink-0 group-hover:-translate-y-1 transition-transform" />
+                      </>
+                    )}
+                  </button>
+                </div>
+
+              </form>
             </div>
-          </form>
+          </div>
+
         </div>
       </div>
-    </div>
+    </section>
   );
 };
 

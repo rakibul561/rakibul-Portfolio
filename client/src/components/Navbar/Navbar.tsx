@@ -13,7 +13,7 @@ const Navbar = () => {
 
   const links = [
     { path: "/", label: "Home" },
-    { path: "#about", label: "About" },
+    { path: "#about", label: "Experience" },
     { path: "#skills", label: "Skills" },
     { path: "#projects", label: "Projects" },
     { path: "/blogs", label: "All-Blogs" },
@@ -41,9 +41,8 @@ const Navbar = () => {
 
   return (
     <nav
-      className={`w-full fixed top-0 z-50 ${
-        scroll ? "md:py-8 py-6 backdrop-blur-3xl" : "py-3 bg-transparent"
-      } transition-all ease-in duration-300 px-3 md:px-0`}
+      className={`w-full fixed top-0 z-50 ${scroll ? "md:py-8 py-6 backdrop-blur-3xl" : "py-3 bg-transparent"
+        } transition-all ease-in duration-300 px-3 md:px-0`}
     >
       <div className="flex mt-4 text-2xl justify-between items-center max-w-7xl mx-auto">
         <Link href="/">
@@ -58,9 +57,8 @@ const Navbar = () => {
 
         {/* -------- Mobile Menu -------- */}
         <ul
-          className={`flex flex-col md:hidden items-center gap-10 uppercase text-sm cursor-pointer text-slate-300 text-[16px] font-medium ${
-            isToggle ? "sidebar-open" : "sidebar-closed"
-          }`}
+          className={`flex flex-col md:hidden items-center gap-10 uppercase text-sm cursor-pointer text-slate-300 text-[16px] font-medium ${isToggle ? "sidebar-open" : "sidebar-closed"
+            }`}
         >
           <div className="w-32">
             <Image
@@ -79,9 +77,8 @@ const Navbar = () => {
                 onClick={(e) => handleNavClick(e, nav.path)}
               >
                 <span
-                  className={`nav-link ${
-                    pathname === nav.path ? "active" : ""
-                  }`}
+                  className={`nav-link ${pathname === nav.path ? "active" : ""
+                    }`}
                 >
                   {nav.label}
                 </span>
@@ -99,9 +96,8 @@ const Navbar = () => {
                 onClick={(e) => handleNavClick(e, nav.path)}
               >
                 <span
-                  className={`nav-link ${
-                    pathname === nav.path ? "active" : ""
-                  }`}
+                  className={`nav-link ${pathname === nav.path ? "active" : ""
+                    }`}
                 >
                   {nav.label}
                 </span>
@@ -112,9 +108,8 @@ const Navbar = () => {
 
         {/* -------- Mobile Toggle -------- */}
         <button
-          className={`md:hidden text-3xl transition-transform duration-300 pr-3 ease-in-out ${
-            isToggle ? "transform rotate-45" : ""
-          }`}
+          className={`md:hidden text-3xl transition-transform duration-300 pr-3 ease-in-out ${isToggle ? "transform rotate-45" : ""
+            }`}
           onClick={() => setIsToggle(!isToggle)}
         >
           <div className="bar"></div>

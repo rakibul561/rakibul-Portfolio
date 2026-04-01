@@ -5,6 +5,7 @@ import { Toaster } from "react-hot-toast";
 import { Poppins } from "next/font/google";
 
 
+import Oneko from "@/components/Oneko";
 
 const poppins = Poppins({
   weight: "500",
@@ -26,6 +27,7 @@ export default function RootLayout({
       <body className={poppins.className}>
         <AuthProvider>
           <Toaster/>
+          <Oneko />
           <main className="min-h-dvh"> {children}</main>
         </AuthProvider>
       </body>
